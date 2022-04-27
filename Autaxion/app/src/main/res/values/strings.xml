@@ -3,4 +3,23 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="brandFord">Ford Mustang</string>
+    <string name="modalMachE">Mach-E</string>
+    <string name="details">Details</string>
+    <string name="brandFerrari">Ferrari</string>
+    <string name="modelFerrari488">488 Spider</string>
+    <string name="home">Home</string>
+    <string name="cars">Cars</string>
+    <string name="search">Search</string>
+    <string name="image_ferrari">image-ferrari</string>
+    <string name="pkFerrariSpider">670pk</string>
+    <string name="horsepower">Horsepower</string>
+    <string name="_11l_engine">11l engine</string>
+    <string name="cilindersFerrari">V8</string>
+    <string name="buildingyear">2015</string>
+    <string name="year">year</string>
+    <string name="accelarationSpeed">3,0s</string>
+    <string name="_325_km_h">325 km/h</string>
+    <string name="top_speed">Top Speed</string>
+    <string name="speed100km">0–100 km/h</string>
 </resources>
