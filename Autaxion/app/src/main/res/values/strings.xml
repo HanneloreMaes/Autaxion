@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Autaxion</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">Car</string>
+    <string name="title_notifications">Search</string>
     <string name="brandFord">Ford Mustang</string>
     <string name="modalMachE">Mach-E</string>
     <string name="details">Details</string>
