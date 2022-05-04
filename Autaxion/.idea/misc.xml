@@ -3,18 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/drawable/car_selector.xml" value="0.2405" />
-        <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/drawable/home_selector.xml" value="0.2405" />
-        <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_home.xml" value="0.2405" />
-        <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_home_red.xml" value="0.2405" />
-        <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_racing_car.xml" value="0.2405" />
-        <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_racing_car_red.xml" value="0.2405" />
-        <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_search_red.xml" value="0.2405" />
-        <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/drawable/search_selector.xml" value="0.2405" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_car_model.xml" value="0.264" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_dashboard.xml" value="0.22826086956521738" />
         <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/layout/activity_main.xml" value="0.2115036231884058" />
-        <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
-        <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

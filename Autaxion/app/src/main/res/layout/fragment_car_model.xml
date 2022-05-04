@@ -35,16 +35,41 @@
                     android:layout_marginTop="0dp"
                     app:srcCompat="@drawable/ferrari_488_spider" />
 
-                <TextView
-                    android:id="@+id/modelFerrari"
-                    android:layout_width="246dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="40dp"
-                    android:text="@string/brandFerrari"
-                    android:textColor="@color/white"
-                    android:textSize="40sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/brandFerrari"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/modelFerrari488"
+                        android:textSize="27sp"
+                        android:textColor="@color/red"/>
+                    <TextView
+                        android:id="@+id/modelFerrari"
+                        android:layout_width="98dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/brandFerrari"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"/>
+
+                    <Button
+                        android:id="@+id/btn_DetailCar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="14dp"
+                        android:backgroundTint="@color/red"
+                        android:text="@string/details"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,15 +84,41 @@
                     android:layout_marginTop="0dp"
                     app:srcCompat="@drawable/ferrari_488_spider" />
 
-                <TextView
-                    android:id="@+id/brandMercedes"
-                    android:layout_width="239dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="40dp"
-                    android:text="@string/mercedes"
-                    android:textColor="@color/white"
-                    android:textSize="40sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/brandFerrari3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/modelFerrari488"
+                        android:textSize="27sp"
+                        android:textColor="@color/red"/>
+                    <TextView
+                        android:id="@+id/modelFerrari3"
+                        android:layout_width="98dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/brandFerrari"
+                        android:textSize="20sp"
+                        android:textColor="@color/white"/>
+
+                    <Button
+                        android:id="@+id/btn_DetailCar3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="14dp"
+                        android:backgroundTint="@color/red"
+                        android:text="@string/details"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
