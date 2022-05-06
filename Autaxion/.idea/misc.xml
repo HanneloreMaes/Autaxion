@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_car_detail.xml" value="0.22826086956521738" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_car_model.xml" value="0.264" />
-        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_dashboard.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_notifications.xml" value="0.22826086956521738" />
         <entry key="..\:/Mobile/Android/Autaxion/Autaxion/app/src/main/res/layout/activity_main.xml" value="0.2115036231884058" />
       </map>
     </option>
