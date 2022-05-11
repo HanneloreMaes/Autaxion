@@ -2,4 +2,5 @@
 <resources>
     <string name="mercedes">Mercedes</string>
     <string name="suzuki">Suzuki</string>
+    <string name="ferrari">Ferrari</string>
 </resources>

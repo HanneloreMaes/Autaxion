@@ -21,8 +21,8 @@ public abstract class CarsDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     CarsDatabase::class.java,
-                    "word_database"
-                ).allowMainThreadQueries().build()
+                    "car_database"
+                    ).allowMainThreadQueries().build()
                 INSTANCE = instance
                 // return instance
                 instance

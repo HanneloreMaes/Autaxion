@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Autaxion">
         <activity
-            android:name=".FragmentCarDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".FragmentCarModelActivity"
             android:exported="false" />
         <activity
