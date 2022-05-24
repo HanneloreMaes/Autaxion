@@ -19,5 +19,23 @@
             android:layout_height="134dp"
             android:layout_marginTop="0dp"
             app:srcCompat="@drawable/ferrari_488_spider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/modelFerrari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/ferrari_model"
+                android:textSize="27sp"
+                android:textColor="@color/red"/>
+            
+
+        </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
