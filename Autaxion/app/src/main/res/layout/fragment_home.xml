@@ -18,4 +18,16 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteY="0dp" />
 
+    <TextView
+        android:id="@+id/fordMustang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/ford_mustang_brand"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mustangLogo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
