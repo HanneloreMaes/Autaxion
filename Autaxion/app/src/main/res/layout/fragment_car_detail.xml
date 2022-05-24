@@ -27,6 +27,13 @@
             android:textSize="25sp"
             android:textAlignment="center"/>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:layout_marginTop="30dp"
+            android:contentDescription="@string/image_ferrari"
+            android:src="@drawable/ferrari_488_spider"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
