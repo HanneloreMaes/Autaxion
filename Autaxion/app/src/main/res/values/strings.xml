@@ -6,4 +6,7 @@
     <string name="ford_mustang_brand">Ford Mustang</string>
     <string name="logo">Logo</string>
     <string name="ford_model">Mach-E</string>
+    <string name="ferrari_model">488 Spider</string>
+    <string name="ferrari_brand">Ferrari</string>
+    <string name="details">Details</string>
 </resources>
