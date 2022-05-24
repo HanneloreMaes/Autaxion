@@ -34,8 +34,16 @@
                 android:text="@string/ferrari_model"
                 android:textSize="27sp"
                 android:textColor="@color/red"/>
-            
+            <TextView
+                android:id="@+id/brandFerrari"
+                android:layout_width="98dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/ferrari_brand"
+                android:textSize="20sp"
+                android:textColor="@color/white"/>
 
+            
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
