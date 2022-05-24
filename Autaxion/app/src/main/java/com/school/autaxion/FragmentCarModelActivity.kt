@@ -19,7 +19,15 @@ import com.school.autaxion.models.CarAdapter
 import com.school.autaxion.models.CarModel
 import org.json.JSONException
 
+<<<<<<< HEAD
 
 class FragmentCarModelActivity : Fragment() {
 
+=======
+class FragmentCarModelActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.fragment_car_model)
+    }
+>>>>>>> parent of ae04353 (Ophalen data met volley)
 }

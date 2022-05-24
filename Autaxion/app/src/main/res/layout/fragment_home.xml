@@ -42,4 +42,16 @@
         app:layout_constraintStart_toEndOf="@+id/fordMustang"
         app:layout_constraintTop_toBottomOf="@+id/mustangLogo" />
 
+    <Button
+        android:id="@+id/btn_Detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:backgroundTint="@color/red"
+        android:text="@string/details"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
