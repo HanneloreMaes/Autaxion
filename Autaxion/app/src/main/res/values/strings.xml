@@ -20,4 +20,6 @@
     <string name="_325_km_h">325 km/h</string>
     <string name="top_speed">Top Speed</string>
     <string name="speed100km">0–100 km/h</string>
+
+    <string name="serverUrl">https://private-anon-a867bc34bb-carsapi1.apiary-mock.com/cars</string>
 </resources>
