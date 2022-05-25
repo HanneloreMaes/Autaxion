@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.hanneloremaes.autaxion.CarAdapter
 import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
+import com.hanneloremaes.autaxion.models.Car
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 class DashboardFragment : Fragment() {
 
@@ -27,6 +31,15 @@ class DashboardFragment : Fragment() {
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        val cars = mutableListOf<Car>()
+        for (i in 0..100){
+            cars.add(Car("Ford"))
+        }
+
+        val recyclerView: RecyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(this.context)
+        recyclerView.adapter = CarAdapter(cars)
 
         return root
     }
