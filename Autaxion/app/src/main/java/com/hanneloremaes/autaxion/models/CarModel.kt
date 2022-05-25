@@ -10,7 +10,6 @@ class CarModel (
         this.carimg = carImage;
     }
 
-
     fun getBrandCar(): String{
         return brand;
     }
