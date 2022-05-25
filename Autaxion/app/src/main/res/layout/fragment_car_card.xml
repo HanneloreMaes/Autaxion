@@ -25,10 +25,10 @@ android:layout_margin="8dp">
             android:id="@+id/brandCar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginStart="12dp"
             android:text="@string/ferrari_model"
-            android:textSize="27sp"
+            android:textSize="30sp"
             android:textColor="@color/red"/>
 
     </LinearLayout>
