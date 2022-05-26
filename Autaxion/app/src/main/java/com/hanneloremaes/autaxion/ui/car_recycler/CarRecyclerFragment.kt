@@ -9,10 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.hanneloremaes.autaxion.databinding.FragmentCarRecyclerBinding
 import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
-import com.hanneloremaes.autaxion.models.Car
-import com.hanneloremaes.autaxion.models.CarAdapter
-import com.hanneloremaes.autaxion.models.CarApi
+import com.hanneloremaes.autaxion.models.car.Car
+import com.hanneloremaes.autaxion.models.car.CarAdapter
+import com.hanneloremaes.autaxion.models.car.CarApi
+import com.hanneloremaes.autaxion.models.model.Model
+import com.hanneloremaes.autaxion.models.model.ModelAdapter
+import com.hanneloremaes.autaxion.models.model.ModelApi
 import com.hanneloremaes.autaxion.ui.dashboard.CarRecyclerViewModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class CarRecyclerFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentCarRecyclerBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -35,7 +39,7 @@ class CarRecyclerFragment : Fragment() {
         val dashboardViewModel =
             ViewModelProvider(this).get(CarRecyclerViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentCarRecyclerBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val retrofit = Retrofit.Builder()
@@ -43,35 +47,26 @@ class CarRecyclerFragment : Fragment() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val api = retrofit.create(CarApi::class.java)
+        val api = retrofit.create(ModelApi::class.java)
 
-        api.fetchAllCars().enqueue(object : Callback<List<Car>> {
-            override fun onResponse(call: Call<List<Car>>, response: Response<List<Car>>) {
+        api.fetchAllCars().enqueue(object : Callback<List<Model>> {
+            override fun onResponse(call: Call<List<Model>>, response: Response<List<Model>>) {
                 showData(response.body()!!)
                 Log.d("Hannelore", "onResponse: ${response.body()!!}")
             }
 
-            override fun onFailure(call: Call<List<Car>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Model>>, t: Throwable) {
                 Log.d("Hannelore", "onFailure")
             }
         })
 
-//        val recyclerView: RecyclerView = binding.recyclerView
-//        recyclerView.layoutManager = LinearLayoutManager(this.context)
-//        recyclerView.adapter = CarAdapter(cars)
-
-//        val cars = mutableListOf<Car>()
-//        for (i in 0..100){
-//            cars.add(Car("Ford"))
-//        }
-
         return root
     }
 
-    private fun showData(cars: List<Car>) {
+    private fun showData(models: List<Model>) {
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this.context)
-        recyclerView.adapter = CarAdapter(cars)
+        recyclerView.adapter = ModelAdapter(models)
     }
 
     override fun onDestroyView() {
