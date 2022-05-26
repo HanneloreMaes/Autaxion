@@ -33,43 +33,29 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        
+        val queue = Volley.newRequestQueue(this.context)
+        val url = "https://private-anon-a867bc34bb-carsapi1.apiary-mock.com/manufacturers"
 
-//        val retrofit = Retrofit.Builder()
-//            .baseUrl("https://vpic.nhtsa.dot.gov/")
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
-//
-//        val api = retrofit.create(CarApi::class.java)
-//
-//        api.fetchAllCars().enqueue(object : Callback<List<Car>> {
-//            override fun onResponse(call: Call<List<Car>>, response: Response<List<Car>>) {
-//                showData(response.body()!!)
-//                Log.d("Hannelore", "onResponse: ${response.body()!!}")
-//            }
-//
-//            override fun onFailure(call: Call<List<Car>>, t: Throwable) {
-//                Log.d("Hannelore", "onFailure")
-//            }
-//        })
+        val carRequest = JsonArrayRequest(
+            Request.Method.GET, url, null, { response ->
+                for (car in 0..39){
+                    val objRes = response.getJSONObject(car)
+                    Log.d("Hannelore", "CarString: ${objRes}")
 
-//        val recyclerView: RecyclerView = binding.recyclerView
-//        recyclerView.layoutManager = LinearLayoutManager(this.context)
-//        recyclerView.adapter = CarAdapter(cars)
+                    val carBrandName = objRes.getString("name")
 
-//        val cars = mutableListOf<Car>()
-//        for (i in 0..100){
-//            cars.add(Car("Ford"))
-//        }
+                    carsBrandsList.add(Car(carBrandName))
+                }
+
+                val recyclerView: RecyclerView = binding.recyclerView
+                recyclerView.layoutManager = LinearLayoutManager(this.context)
+                recyclerView.adapter = CarAdapter(carsBrandsList)
+            }, { Log.d("Gebruiker", "Something went wrong") })
+
+        queue.add(carRequest)
 
         return root
     }
-
-//    private fun showData(cars: List<Car>) {
-//        val recyclerView: RecyclerView = binding.recyclerView
-//        recyclerView.layoutManager = LinearLayoutManager(this.context)
-//        recyclerView.adapter = CarAdapter(cars)
-//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
