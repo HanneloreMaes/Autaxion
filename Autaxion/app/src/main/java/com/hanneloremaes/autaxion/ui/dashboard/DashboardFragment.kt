@@ -48,6 +48,7 @@ class DashboardFragment : Fragment() {
 
         api.fetchAllCars().enqueue(object : Callback<List<Car>> {
             override fun onResponse(call: Call<List<Car>>, response: Response<List<Car>>) {
+                showData(response.body()!!)
                 Log.d("Hannelore", "onResponse: ${response.body()!![0].make}")
             }
 
@@ -56,16 +57,22 @@ class DashboardFragment : Fragment() {
             }
         })
 
-        val cars = mutableListOf<Car>()
-        for (i in 0..100){
-            cars.add(Car("Ford"))
-        }
+//        val recyclerView: RecyclerView = binding.recyclerView
+//        recyclerView.layoutManager = LinearLayoutManager(this.context)
+//        recyclerView.adapter = CarAdapter(cars)
 
+//        val cars = mutableListOf<Car>()
+//        for (i in 0..100){
+//            cars.add(Car("Ford"))
+//        }
+
+        return root
+    }
+
+    private fun showData(cars: List<Car>) {
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this.context)
         recyclerView.adapter = CarAdapter(cars)
-
-        return root
     }
 
     override fun onDestroyView() {
