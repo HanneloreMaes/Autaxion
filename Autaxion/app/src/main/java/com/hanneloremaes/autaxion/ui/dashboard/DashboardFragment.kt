@@ -9,21 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.Volley
 import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
-import com.hanneloremaes.autaxion.models.car.Car
-import com.hanneloremaes.autaxion.models.car.CarAdapter
-import com.hanneloremaes.autaxion.models.car.CarApi
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.hanneloremaes.autaxion.model.Car
+import com.hanneloremaes.autaxion.model.CarAdapter
 
 class DashboardFragment : Fragment() {
 
+    var carsBrandsList: MutableList<Car> = mutableListOf()
     private var _binding: FragmentDashboardBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -37,23 +33,25 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://private-anon-46d9d46b75-carsapi1.apiary-mock.com")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        
 
-        val api = retrofit.create(CarApi::class.java)
-
-        api.fetchAllCars().enqueue(object : Callback<List<Car>> {
-            override fun onResponse(call: Call<List<Car>>, response: Response<List<Car>>) {
-                showData(response.body()!!)
-                Log.d("Hannelore", "onResponse: ${response.body()!!}")
-            }
-
-            override fun onFailure(call: Call<List<Car>>, t: Throwable) {
-                Log.d("Hannelore", "onFailure")
-            }
-        })
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl("https://vpic.nhtsa.dot.gov/")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//
+//        val api = retrofit.create(CarApi::class.java)
+//
+//        api.fetchAllCars().enqueue(object : Callback<List<Car>> {
+//            override fun onResponse(call: Call<List<Car>>, response: Response<List<Car>>) {
+//                showData(response.body()!!)
+//                Log.d("Hannelore", "onResponse: ${response.body()!!}")
+//            }
+//
+//            override fun onFailure(call: Call<List<Car>>, t: Throwable) {
+//                Log.d("Hannelore", "onFailure")
+//            }
+//        })
 
 //        val recyclerView: RecyclerView = binding.recyclerView
 //        recyclerView.layoutManager = LinearLayoutManager(this.context)
@@ -67,11 +65,11 @@ class DashboardFragment : Fragment() {
         return root
     }
 
-    private fun showData(cars: List<Car>) {
-        val recyclerView: RecyclerView = binding.recyclerView
-        recyclerView.layoutManager = LinearLayoutManager(this.context)
-        recyclerView.adapter = CarAdapter(cars)
-    }
+//    private fun showData(cars: List<Car>) {
+//        val recyclerView: RecyclerView = binding.recyclerView
+//        recyclerView.layoutManager = LinearLayoutManager(this.context)
+//        recyclerView.adapter = CarAdapter(cars)
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
