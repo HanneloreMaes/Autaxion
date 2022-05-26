@@ -9,11 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hanneloremaes.autaxion.CarAdapter
+import com.hanneloremaes.autaxion.models.CarAdapter
 import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
 import com.hanneloremaes.autaxion.models.Car
 import com.hanneloremaes.autaxion.models.CarApi
-import kotlinx.android.synthetic.main.fragment_dashboard.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

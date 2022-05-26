@@ -1,11 +1,11 @@
-package com.hanneloremaes.autaxion
+package com.hanneloremaes.autaxion.models
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.hanneloremaes.autaxion.models.Car
+import com.hanneloremaes.autaxion.R
 import kotlinx.android.synthetic.main.fragment_car_card.view.*
 
 class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.ViewHolder>() {
