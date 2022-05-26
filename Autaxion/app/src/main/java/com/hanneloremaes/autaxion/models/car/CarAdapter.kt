@@ -1,4 +1,4 @@
-package com.hanneloremaes.autaxion.models
+package com.hanneloremaes.autaxion.models.car
 
 import android.view.LayoutInflater
 import android.view.View

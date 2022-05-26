@@ -1,4 +1,4 @@
-package com.hanneloremaes.autaxion.models
+package com.hanneloremaes.autaxion.models.car
 
 import retrofit2.Call
 import retrofit2.http.GET
