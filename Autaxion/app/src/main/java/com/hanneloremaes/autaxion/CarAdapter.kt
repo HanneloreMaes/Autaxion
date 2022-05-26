@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hanneloremaes.autaxion.models.Car
 import kotlinx.android.synthetic.main.fragment_car_card.view.*
 
-class CarAdapter(private val cars: MutableList<Car>) : RecyclerView.Adapter<CarAdapter.ViewHolder>() {
+class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val brandCar: TextView = itemView.brandCar
     }
