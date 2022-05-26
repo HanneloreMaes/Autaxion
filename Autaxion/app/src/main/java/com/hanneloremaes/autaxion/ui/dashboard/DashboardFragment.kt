@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.hanneloremaes.autaxion.models.CarAdapter
 import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
 import com.hanneloremaes.autaxion.models.Car
+import com.hanneloremaes.autaxion.models.CarAdapter
 import com.hanneloremaes.autaxion.models.CarApi
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,7 +22,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -39,7 +38,7 @@ class DashboardFragment : Fragment() {
         val root: View = binding.root
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://private-anon-a867bc34bb-carsapi1.apiary-mock.com")
+            .baseUrl("https://private-anon-46d9d46b75-carsapi1.apiary-mock.com")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -48,7 +47,7 @@ class DashboardFragment : Fragment() {
         api.fetchAllCars().enqueue(object : Callback<List<Car>> {
             override fun onResponse(call: Call<List<Car>>, response: Response<List<Car>>) {
                 showData(response.body()!!)
-                Log.d("Hannelore", "onResponse: ${response.body()!![0].make}")
+                Log.d("Hannelore", "onResponse: ${response.body()!!}")
             }
 
             override fun onFailure(call: Call<List<Car>>, t: Throwable) {
