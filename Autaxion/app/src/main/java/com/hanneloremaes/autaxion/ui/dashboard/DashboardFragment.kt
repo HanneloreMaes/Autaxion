@@ -48,11 +48,11 @@ class DashboardFragment : Fragment() {
 
         api.fetchAllCars().enqueue(object : Callback<List<Car>> {
             override fun onResponse(call: Call<List<Car>>, response: Response<List<Car>>) {
-                println("Wrong on Response")
+                Log.d("Hannelore", "onResponse: ${response.body()!![0].make}")
             }
 
             override fun onFailure(call: Call<List<Car>>, t: Throwable) {
-                println("Wrong on Failure")
+                Log.d("Hannelore", "onFailure")
             }
         })
 
