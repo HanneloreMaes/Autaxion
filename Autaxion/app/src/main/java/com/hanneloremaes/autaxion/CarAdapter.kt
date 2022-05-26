@@ -19,7 +19,7 @@ class CarAdapter(private val cars: MutableList<Car>) : RecyclerView.Adapter<CarA
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.brandCar.text = cars[position].brand
+        holder.brandCar.text = cars[position].make
     }
 
     override fun getItemCount() = cars.size
