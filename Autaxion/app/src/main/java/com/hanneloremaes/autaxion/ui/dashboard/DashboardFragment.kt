@@ -10,9 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
-import com.hanneloremaes.autaxion.models.Car
-import com.hanneloremaes.autaxion.models.CarAdapter
-import com.hanneloremaes.autaxion.models.CarApi
+import com.hanneloremaes.autaxion.models.car.Car
+import com.hanneloremaes.autaxion.models.car.CarAdapter
+import com.hanneloremaes.autaxion.models.car.CarApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
