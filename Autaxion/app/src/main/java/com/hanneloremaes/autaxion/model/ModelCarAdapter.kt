@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hanneloremaes.autaxion.R
-import kotlinx.android.synthetic.main.fragment_car_card.view.*
+import kotlinx.android.synthetic.main.fragment_model_card.view.*
 
-class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.ViewHolder>(){
+class ModelCarAdapter(private val models: List<ModelCar>) : RecyclerView.Adapter<ModelCarAdapter.ViewHolder>(){
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val brandCar: TextView = itemView.brandCar
+        val modelCar: TextView = itemView.modelCar
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,10 +19,10 @@ class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val car = cars[position]
-        holder.brandCar.text = car.name.uppercase()
+        val model = models[position]
+        holder.modelCar.text = model.Model_Name.uppercase()
     }
 
-    override fun getItemCount() = cars.size
+    override fun getItemCount() = models.size
 
 }
