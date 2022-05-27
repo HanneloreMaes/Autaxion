@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.hanneloremaes.autaxion.R
 import com.hanneloremaes.autaxion.onClickFragments.ModelCarsFragment
+import com.hanneloremaes.autaxion.ui.dashboard.DashboardFragment
 import kotlinx.android.synthetic.main.fragment_car_card.view.*
 
 class CarAdapter(private val cars: List<Car>, private val listener: OnItemClickListener) : RecyclerView.Adapter<CarAdapter.ViewHolder>(){
@@ -40,17 +43,6 @@ class CarAdapter(private val cars: List<Car>, private val listener: OnItemClickL
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
          val car = cars[position]
         holder.brandCar.text = car.name.uppercase()
-
-//        holder.itemView.setOnClickListener(object: View.OnClickListener{
-//            override fun onClick(v: View?) {
-//                if(position == 1){
-//                    val activity = v!!.context as AppCompatActivity
-//                    val modelcarsFragment = ModelCarsFragment()
-//                    activity.supportFragmentManager.beginTransaction().replace(R.id.recDashboard, modelcarsFragment).addToBackStack(null).commit()
-//                }
-//            }
-//        })
-
     }
 
     override fun getItemCount() = cars.size
