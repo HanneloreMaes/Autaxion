@@ -5,18 +5,24 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import com.hanneloremaes.autaxion.R
 import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
 import com.hanneloremaes.autaxion.model.Car
 import com.hanneloremaes.autaxion.model.CarAdapter
+import com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 
-class DashboardFragment : Fragment(){
+class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
 
     var carsBrandsList: MutableList<Car> = mutableListOf()
     private var _binding: FragmentDashboardBinding? = null
@@ -52,13 +58,26 @@ class DashboardFragment : Fragment(){
 
                 val recyclerView: RecyclerView = binding.recyclerView
                 recyclerView.layoutManager = LinearLayoutManager(this.context)
-                recyclerView.adapter = CarAdapter(carsBrandsList)
+                recyclerView.adapter = CarAdapter(carsBrandsList, this)
             }, { Log.d("Gebruiker", "Something went wrong") })
 
         queue.add(carRequest)
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
 
         return root
+    }
+
+    override fun onItemClick(position: Int) {
+        Toast.makeText(this.context, "Item $position clicked", Toast.LENGTH_SHORT).show()
+        val clickedItem: Car = carsBrandsList[position]
+        clickedItem.name = "Clicked"
+        recyclerView.adapter?.notifyItemChanged(position)
+
+        val fragment: Fragment = ModelCarsFragment()
+        val fm: FragmentManager = parentFragmentManager
+        val trans: FragmentTransaction = fm.beginTransaction()
+        trans.replace(R.id.recDas, fragment).commit()
+
     }
 
     override fun onDestroyView() {
