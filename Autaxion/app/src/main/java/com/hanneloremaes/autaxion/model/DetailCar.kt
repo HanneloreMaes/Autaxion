@@ -1,4 +1,8 @@
 package com.hanneloremaes.autaxion.model
 
-class DetailCar {
-}
+class DetailCar (
+    val fuel_type: String,
+    val make: String,
+    val model: String,
+
+        )
