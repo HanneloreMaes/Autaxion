@@ -8,9 +8,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hanneloremaes.autaxion.R
 import kotlinx.android.synthetic.main.fragment_model_card.view.*
 
-class ModelCarAdapter(private val models: List<ModelCar>) : RecyclerView.Adapter<ModelCarAdapter.ViewHolder>(){
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+class ModelCarAdapter(private val models: List<ModelCar>, private val listener: OnItemClickListener) : RecyclerView.Adapter<ModelCarAdapter.ViewHolder>(){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
         val modelCar: TextView = itemView.modelCar
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            val position: Int = adapterPosition
+            if(position != RecyclerView.NO_POSITION){
+                listener.onItemClick(position)
+            }
+        }
+    }
+
+    interface OnItemClickListener{
+        fun onItemClick(position: Int)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
