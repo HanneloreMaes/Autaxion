@@ -7,18 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import com.hanneloremaes.autaxion.R
 import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
 import com.hanneloremaes.autaxion.model.Car
 import com.hanneloremaes.autaxion.model.CarAdapter
+import com.hanneloremaes.autaxion.onClickFragments.ModelCarsFragment
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
-class DashboardFragment : Fragment() {
+class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
 
     var carsBrandsList: MutableList<Car> = mutableListOf()
     private var _binding: FragmentDashboardBinding? = null
@@ -51,7 +54,7 @@ class DashboardFragment : Fragment() {
 
                 val recyclerView: RecyclerView = binding.recyclerView
                 recyclerView.layoutManager = LinearLayoutManager(this.context)
-                recyclerView.adapter = CarAdapter(carsBrandsList)
+                recyclerView.adapter = CarAdapter(carsBrandsList, this)
             }, { Log.d("Gebruiker", "Something went wrong") })
 
         queue.add(carRequest)
@@ -64,10 +67,15 @@ class DashboardFragment : Fragment() {
         _binding = null
     }
 
-//    override fun onItemClick(position: Int) {
-//        Toast.makeText(this.context, "Item $position clicked", Toast.LENGTH_SHORT).show()
+    override fun onItemClick(position: Int) {
+        Toast.makeText(this.context, "Item $position clicked", Toast.LENGTH_SHORT).show()
+
+        val fragment: Fragment = ModelCarsFragment()
+        val fragmentManager : FragmentManager = childFragmentManager
+        fragmentManager.beginTransaction().replace(R.id.recDashboard, fragment).commit()
+
 //        val clickedItem: Car = carsBrandsList[position]
 //        clickedItem.name = "Clicked"
 //        recyclerView.adapter?.notifyItemChanged(position)
-//    }
+    }
 }
