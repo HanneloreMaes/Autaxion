@@ -38,6 +38,8 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
+        /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
         val url = "https://private-anon-a867bc34bb-carsapi1.apiary-mock.com/manufacturers"
 
@@ -58,6 +60,7 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
             }, { Log.d("Gebruiker", "Something went wrong") })
 
         queue.add(carRequest)
+        /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
 
         return root
     }
