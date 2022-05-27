@@ -66,15 +66,12 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        Toast.makeText(this.context, "Item $position clicked", Toast.LENGTH_SHORT).show()
-        val clickedItem: Car = carsBrandsList[position]
-        clickedItem.name = "Clicked"
-        recyclerView.adapter?.notifyItemChanged(position)
-
+        /*https://stackoverflow.com/questions/7793576/switching-between-fragment-view By Mats Hofman begin*/
         val fragment: Fragment = ModelCarsFragment()
         val fm: FragmentManager = parentFragmentManager
         val trans: FragmentTransaction = fm.beginTransaction()
         trans.replace(R.id.recDas, fragment).commit()
+        /*https://stackoverflow.com/questions/7793576/switching-between-fragment-view By Mats Hofman eind*/
 
     }
 
