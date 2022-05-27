@@ -18,7 +18,7 @@ import com.hanneloremaes.autaxion.model.Car
 import com.hanneloremaes.autaxion.model.CarAdapter
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
-class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
+class DashboardFragment : Fragment() {
 
     var carsBrandsList: MutableList<Car> = mutableListOf()
     private var _binding: FragmentDashboardBinding? = null
@@ -51,7 +51,7 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
 
                 val recyclerView: RecyclerView = binding.recyclerView
                 recyclerView.layoutManager = LinearLayoutManager(this.context)
-                recyclerView.adapter = CarAdapter(carsBrandsList, this)
+                recyclerView.adapter = CarAdapter(carsBrandsList)
             }, { Log.d("Gebruiker", "Something went wrong") })
 
         queue.add(carRequest)
@@ -64,10 +64,10 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
         _binding = null
     }
 
-    override fun onItemClick(position: Int) {
-        Toast.makeText(this.context, "Item $position clicked", Toast.LENGTH_SHORT).show()
-        val clickedItem: Car = carsBrandsList[position]
-        clickedItem.name = "Clicked"
-        recyclerView.adapter?.notifyItemChanged(position)
-    }
+//    override fun onItemClick(position: Int) {
+//        Toast.makeText(this.context, "Item $position clicked", Toast.LENGTH_SHORT).show()
+//        val clickedItem: Car = carsBrandsList[position]
+//        clickedItem.name = "Clicked"
+//        recyclerView.adapter?.notifyItemChanged(position)
+//    }
 }
