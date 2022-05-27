@@ -48,8 +48,6 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
             Request.Method.GET, url, null, { response ->
                 for (car in 0..39){
                     val objRes = response.getJSONObject(car)
-                    Log.d("Hannelore", "CarString: ${objRes}")
-
                     val idCar = objRes.getInt("id")
                     val carBrandName = objRes.getString("name")
 
@@ -59,7 +57,7 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
                 val recyclerView: RecyclerView = binding.recyclerView
                 recyclerView.layoutManager = LinearLayoutManager(this.context)
                 recyclerView.adapter = CarAdapter(carsBrandsList, this)
-            }, { Log.d("Gebruiker", "Something went wrong") })
+            }, { Log.d("User", "Something went wrong") })
 
         queue.add(carRequest)
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/

@@ -22,6 +22,7 @@ import com.hanneloremaes.autaxion.model.CarAdapter
 import com.hanneloremaes.autaxion.model.ModelCar
 import com.hanneloremaes.autaxion.model.ModelCarAdapter
 import com.hanneloremaes.autaxion.ui.dashboard.DashboardViewModel
+import kotlinx.android.synthetic.main.fragment_model_card.*
 
 class ModelCarsFragment : Fragment() {
 
@@ -41,16 +42,15 @@ class ModelCarsFragment : Fragment() {
 
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
-        val url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/honda?format=json"
+        val url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/chrysler?format=json"
 
         val carRequest = JsonObjectRequest(
             Request.Method.GET, url, null, { response ->
                 val results = response.getJSONArray("Results")
-                for (car in 0..39){
+                for (car in 0..(results.length()-1)){
                     val objRes = results[car].toString()
                     val gsonConverter = Gson()
                     val modelCar = gsonConverter.fromJson(objRes, ModelCar::class.java)
-                    Log.d("Hannelore", "CarString: ${modelCar}")
 
                     carsModelsList.add(modelCar)
                 }
@@ -58,7 +58,7 @@ class ModelCarsFragment : Fragment() {
                 val recyclerView: RecyclerView = binding.recyclerView
                 recyclerView.layoutManager = LinearLayoutManager(this.context)
                 recyclerView.adapter = ModelCarAdapter(carsModelsList)
-            }, { Log.d("Gebruiker", "Something went wrong") })
+            }, { Log.d("User", "Something went wrong") })
 
         queue.add(carRequest)
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
