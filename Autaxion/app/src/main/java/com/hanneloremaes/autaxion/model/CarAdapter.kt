@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.hanneloremaes.autaxion.R
 import kotlinx.android.synthetic.main.fragment_car_card.view.*
@@ -24,6 +25,10 @@ class CarAdapter(private val cars: List<Car>) : RecyclerView.Adapter<CarAdapter.
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val car = cars[position]
         holder.brandCar.text = car.name.uppercase()
+
+        holder.btnCar.setOnClickListener {
+            Log.d("Hannelore", "You clicked me")
+        }
     }
 
     override fun getItemCount() = cars.size
