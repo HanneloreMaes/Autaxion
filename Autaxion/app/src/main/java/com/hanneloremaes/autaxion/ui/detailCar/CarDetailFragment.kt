@@ -53,6 +53,7 @@ class CarDetailFragment : Fragment(){
 //                }
 
             }, Response.ErrorListener { Log.d("User", "Something went wrong") })
+        /*https://syntaxfix.com/question/16326/how-to-set-custom-header-in-volley-request By Unknown begin*/
         {
             @Throws(AuthFailureError::class)
             override fun getHeaders(): Map<String, String> {
@@ -61,6 +62,7 @@ class CarDetailFragment : Fragment(){
                 return params
             }
         }
+        /*https://syntaxfix.com/question/16326/how-to-set-custom-header-in-volley-request By Unknown eind*/
 //            {
 //                fun getHeaders(): Map<String, String> {
 //                    // Create HashMap of your Headers as the example provided below
