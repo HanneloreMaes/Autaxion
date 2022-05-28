@@ -37,11 +37,15 @@ class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
         _binding = FragmentModelYearCarsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val args = this.arguments
+        val brandData = args?.get("argName")
+        Log.d("User-Year", "Brand: $brandData")
 
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
         //val url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/chrysler?format=json"
 //        val url = "https://api.api-ninjas.com/v1/cars?make=chrysler&model=cirrus&year=1997"
+//        val url = "https://api.api-ninjas.com/v1/cars?make=chrysler&model=cirrus"
 //
 //        val detailRequest: JsonArrayRequest = object: JsonArrayRequest(
 //            Request.Method.GET, url, null, Response.Listener { response ->
