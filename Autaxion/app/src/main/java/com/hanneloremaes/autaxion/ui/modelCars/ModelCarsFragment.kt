@@ -37,7 +37,7 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
 
         val args = this.arguments
         val brandData = args?.get("argName")
-        Log.d("User-Model", "Brand: $brandData")
+        Log.d("Arguments-Model", "Brand: $brandData")
 
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
@@ -46,18 +46,25 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
         val modelRequest = JsonObjectRequest(
             Request.Method.GET, url, null, { response ->
                 val results = response.getJSONArray("Results")
-                for (car in 0..(results.length()-1)){
-                    val objRes = results[car].toString()
-                    val gsonConverter = Gson()
-                    val modelCar = gsonConverter.fromJson(objRes, ModelCar::class.java)
+                Log.d("User-ModelCars", "Info: $results")
+                if(response.length() == 0){
+                    Log.d("SUCCES-ModelCars", "If-statement == 0")
+                }else{
+                    Log.d("SUCCES-ModelCars", "If-statement != 0")
+                    for (car in 0..(results.length()-1)){
+                        val objRes = results[car].toString()
+                        val gsonConverter = Gson()
+                        val modelCar = gsonConverter.fromJson(objRes, ModelCar::class.java)
 
-                    carsModelsList.add(modelCar)
+                        Log.d("User-Model", "Info: ${modelCar.Model_Name}")
+                        carsModelsList.add(modelCar)
+                    }
                 }
 
                 val recyclerView: RecyclerView = binding.recyclerView
                 recyclerView.layoutManager = LinearLayoutManager(this.context)
                 recyclerView.adapter = ModelCarAdapter(carsModelsList, this)
-            }, { Log.d("User", "Something went wrong") })
+            }, { Log.d("User-Error-Model", "Something went wrong") })
 
         queue.add(modelRequest)
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/

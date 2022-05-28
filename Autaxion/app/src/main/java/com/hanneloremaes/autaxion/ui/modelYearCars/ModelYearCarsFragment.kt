@@ -44,7 +44,7 @@ class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
         val args = this.arguments
         val brandData = args?.get("argName")
         val modelData = args?.get("argModel")
-
+        Log.d("Arguments-ModelYearCar", "$brandData : $modelData")
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
         //val url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/chrysler?format=json"
@@ -53,25 +53,40 @@ class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
 //
         val detailRequest: JsonArrayRequest = object: JsonArrayRequest(
             Request.Method.GET, url, null, Response.Listener { response ->
-                Log.d("Hannelore", "Info: $response")
-//                val results = response.getJSONArray("Results")
-                for (car in 0..(response.length()-1)){
-                    val objRes = response.getJSONObject(car)
-                    val carBrandName = objRes.getString("make")
-                    val carModelName = objRes.getString("model")
-                    val carYear = objRes.getInt("year")
-                    val displacementCar = objRes.getInt("displacement")
+                Log.d("User-ModelYearCars", "${response}")
+                if(response.length() == 0){
+                    Log.d("SUCCES-ModelYearCars", "If-statement modelYearCars == 1")
+                        //val objRes = response.getJSONObject(car)
+//                        val carBrandName = objRes.getString("make")
+//                        val carModelName = objRes.getString("model")
+//                        val carYear = objRes.getInt("year")
+//                        val displacementCar = objRes.getInt("displacement")
+//
+//                        Log.d("User-Year", "Info: $carBrandName : $carModelName : $carYear : $displacementCar")
+//
+//                        modelYearList.add(YearModel(carBrandName, carModelName, carYear, displacementCar))
 
-                    Log.d("User-Year", "Info: $carBrandName : $carModelName : $carYear : $displacementCar")
+                }else{
+                    Log.d("SUCCES-ModelYearCars", "If-statement modelYearCars != 1")
+                    for (car in 0..(response.length()-1)){
+                        val objRes = response.getJSONObject(car)
+                        val carBrandName = objRes.getString("make")
+                        val carModelName = objRes.getString("model")
+                        val carYear = objRes.getInt("year")
+                        val displacementCar = objRes.getInt("displacement")
 
-                    modelYearList.add(YearModel(carBrandName, carModelName, carYear, displacementCar))
+                        Log.d("User-Year", "Info: $carBrandName : $carModelName : $carYear : $displacementCar")
+
+                        modelYearList.add(YearModel(carBrandName, carModelName, carYear, displacementCar))
+                    }
                 }
+
 
                 val recyclerView: RecyclerView = binding.recyclerView
                 recyclerView.layoutManager = LinearLayoutManager(this.context)
                 recyclerView.adapter = YearModelAdapter(modelYearList, this)
 
-            }, Response.ErrorListener { Log.d("User", "Something went wrong") })
+            }, Response.ErrorListener { Log.d("User-Error-ModelYear", "Something went wrong") })
         /*https://syntaxfix.com/question/16326/how-to-set-custom-header-in-volley-request By Unknown begin*/
         {
             @Throws(AuthFailureError::class)
