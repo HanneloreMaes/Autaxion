@@ -15,7 +15,76 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.hanneloremaes.autaxion.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_modelCarsFragment"
+            app:destination="@id/modelCarsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/modelCarsFragment"
+        android:name="com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment"
+        android:label="fragment_model_cars"
+        tools:layout="@layout/fragment_model_cars" >
+        <action
+            android:id="@+id/action_modelCarsFragment_to_modelYearCarsFragment"
+            app:destination="@id/modelYearCarsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_modelCarsFragment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <argument
+            android:name="name"
+            app:argType="com.hanneloremaes.autaxion.model.Car"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/modelYearCarsFragment"
+        android:name="com.hanneloremaes.autaxion.ui.modelYearCars.ModelYearCarsFragment"
+        android:label="fragment_model_year_cars"
+        tools:layout="@layout/fragment_model_year_cars" >
+        <action
+            android:id="@+id/action_modelYearCarsFragment_to_carDetailFragment"
+            app:destination="@id/carDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_modelYearCarsFragment_to_modelCarsFragment"
+            app:destination="@id/modelCarsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    
+    <fragment
+        android:id="@+id/carDetailFragment"
+        android:name="com.hanneloremaes.autaxion.ui.detailCar.CarDetailFragment"
+        android:label="fragment_car_detail"
+        tools:layout="@layout/fragment_car_detail" >
+        <action
+            android:id="@+id/action_carDetailFragment_to_modelYearCarsFragment"
+            app:destination="@id/modelYearCarsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
