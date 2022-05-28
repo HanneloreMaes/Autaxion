@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hanneloremaes.autaxion.R
-import kotlinx.android.synthetic.main.fragment_model_card.view.*
 import kotlinx.android.synthetic.main.fragment_model_year_card.view.*
 
 class YearModelAdapter(private val years: List<YearModel>, private val listener: OnItemClickListener) : RecyclerView.Adapter<YearModelAdapter.ViewHolder>(){
