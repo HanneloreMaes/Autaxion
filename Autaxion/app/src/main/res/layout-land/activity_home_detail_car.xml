@@ -12,11 +12,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <CheckBox
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/checkbox_selector"
+            android:button="@null"
+            android:gravity="center" />
+
         <TextView
             android:id="@+id/detail_modelCar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:textColor="@color/red"
             android:text="@string/mustang_mach_e"
             android:textSize="30sp"
@@ -37,7 +46,7 @@
             <ImageView
                 android:layout_width="291dp"
                 android:layout_height="250dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="5dp"
                 android:contentDescription="@string/image_default"
                 android:scaleType="fitCenter"
                 android:src="@drawable/image_12" />
@@ -50,7 +59,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="45dp"
+                    android:layout_marginTop="35dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -112,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center"
-                    android:layout_marginTop="50dp">
+                    android:layout_marginTop="40dp">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

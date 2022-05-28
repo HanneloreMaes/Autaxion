@@ -12,6 +12,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <CheckBox
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/checkbox_selector"
+            android:button="@null"
+            android:gravity="center" />
+
         <TextView
             android:id="@+id/detail_modelCar"
             android:layout_width="match_parent"
