@@ -19,7 +19,7 @@
             android:layout_marginTop="0dp"
             android:contentDescription="@string/ferrari_model"
             android:scaleType="centerCrop"
-            android:src="@drawable/ferrari_488_spider" />
+            android:src="@drawable/image_10" />
 
         <TextView
             android:id="@+id/brandCar"
