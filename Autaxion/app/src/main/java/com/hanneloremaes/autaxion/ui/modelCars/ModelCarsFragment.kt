@@ -42,6 +42,9 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
         _binding = FragmentModelCarsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val args = this.arguments
+        val brandData = args?.get("argName")
+        Log.d("User", "Brand: $brandData")
 
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
