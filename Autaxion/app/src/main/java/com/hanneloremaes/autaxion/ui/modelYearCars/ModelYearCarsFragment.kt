@@ -49,7 +49,7 @@ class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
         val queue = Volley.newRequestQueue(this.context)
         //val url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/chrysler?format=json"
 //        val url = "https://api.api-ninjas.com/v1/cars?make=chrysler&model=cirrus&year=1997"
-        val url = "https://api.api-ninjas.com/v1/cars?limit=30&make=$brandData&model=$modelData"
+        val url = "https://api.api-ninjas.com/v1/cars?limit=15&make=$brandData&model=$modelData"
 //
         val detailRequest: JsonArrayRequest = object: JsonArrayRequest(
             Request.Method.GET, url, null, Response.Listener { response ->
