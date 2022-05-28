@@ -20,6 +20,7 @@ import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
 import com.hanneloremaes.autaxion.model.Car
 import com.hanneloremaes.autaxion.model.CarAdapter
 import com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment
+import kotlinx.android.synthetic.main.fragment_car_card.*
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
@@ -48,10 +49,9 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
             Request.Method.GET, url, null, { response ->
                 for (car in 0..39){
                     val objRes = response.getJSONObject(car)
-                    val idCar = objRes.getInt("id")
                     val carBrandName = objRes.getString("name")
 
-                    carsBrandsList.add(Car(idCar, carBrandName))
+                    carsBrandsList.add(Car(carBrandName))
                 }
 
                 val recyclerView: RecyclerView = binding.recyclerView
