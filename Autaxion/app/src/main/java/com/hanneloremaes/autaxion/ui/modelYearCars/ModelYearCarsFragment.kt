@@ -49,13 +49,14 @@ class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
         val queue = Volley.newRequestQueue(this.context)
         //val url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/chrysler?format=json"
 //        val url = "https://api.api-ninjas.com/v1/cars?make=chrysler&model=cirrus&year=1997"
-        val url = "https://api.api-ninjas.com/v1/cars?make=${brandData}&model=${modelData}"
+        val url = "https://api.api-ninjas.com/v1/cars?limit=30&make=$brandData&model=$modelData"
 //
         val detailRequest: JsonArrayRequest = object: JsonArrayRequest(
             Request.Method.GET, url, null, Response.Listener { response ->
                 Log.d("User-ModelYearCars", "${response}")
                 if(response.length() == 0){
-                    Log.d("SUCCES-ModelYearCars", "If-statement modelYearCars == 1")
+                    for(car in 0 until response.length()){
+                        Log.d("SUCCES-ModelYearCars", "If-statement modelYearCars == 1")
                         //val objRes = response.getJSONObject(car)
 //                        val carBrandName = objRes.getString("make")
 //                        val carModelName = objRes.getString("model")
@@ -65,10 +66,10 @@ class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
 //                        Log.d("User-Year", "Info: $carBrandName : $carModelName : $carYear : $displacementCar")
 //
 //                        modelYearList.add(YearModel(carBrandName, carModelName, carYear, displacementCar))
-
+                    }
                 }else{
                     Log.d("SUCCES-ModelYearCars", "If-statement modelYearCars != 1")
-                    for (car in 0..(response.length()-1)){
+                    for (car in 0 until response.length()){
                         val objRes = response.getJSONObject(car)
                         val carBrandName = objRes.getString("make")
                         val carModelName = objRes.getString("model")
