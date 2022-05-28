@@ -6,6 +6,9 @@
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable-v24/home_selector.xml" value="0.208" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable-v24/ic_home.xml" value="0.208" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable-v24/ic_home_red.xml" value="0.208" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/checkbox_selector.xml" value="0.236" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/heart_checkbox.xml" value="0.2005" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/heart_checkbox_filled.xml" value="0.2005" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.208" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout-land/activity_home_detail_car.xml" value="0.1" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout-land/fragment_car_card.xml" value="0.1" />
@@ -16,7 +19,7 @@
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/activity_home_detail_car.xml" value="0.23596014492753623" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/activity_main.xml" value="0.1875" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_car_card.xml" value="0.20969202898550723" />
-        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_car_detail.xml" value="0.2" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_car_detail.xml" value="0.46647230320699706" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_car_recycler.xml" value="0.2151268115942029" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_dashboard.xml" value="0.1875" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout/fragment_home.xml" value="0.1875" />
