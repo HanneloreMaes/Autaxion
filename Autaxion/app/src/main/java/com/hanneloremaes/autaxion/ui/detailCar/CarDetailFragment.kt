@@ -46,7 +46,7 @@ class CarDetailFragment : Fragment(){
         val detailRequest: JsonArrayRequest = object: JsonArrayRequest(
             Request.Method.GET, url, null, Response.Listener { response ->
                 Log.d("User-Detail", "Info: $response")
-                for (car in 0..(response.length()-1)){
+                for (car in 0 until response.length()){
                     val objRes = response.getJSONObject(car)
                     val fuel = objRes.getString("fuel_type").uppercase()
                     val carBrandName = objRes.getString("make").uppercase()
