@@ -28,7 +28,8 @@ import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.android.synthetic.main.fragment_model_card.*
 
 class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
-
+    private val ARG_NAME = "argName"
+    private val ARG_MODEL = "argModel"
     var carsModelsList: MutableList<ModelCar> = mutableListOf()
     private var _binding: FragmentModelCarsBinding? = null
     private val binding get() = _binding!!
@@ -44,7 +45,7 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
 
         val args = this.arguments
         val brandData = args?.get("argName")
-        Log.d("User", "Brand: $brandData")
+        Log.d("User-Model", "Brand: $brandData")
 
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
@@ -73,8 +74,17 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
+        val brand = carsModelsList.get(position).Make_Name
+        val model = carsModelsList.get(position).Model_Name
+        /*https://gist.github.com/codinginflow/a05784462aa8e2a60961539ecd803110 By Coding in Flow begin*/
+        val args = Bundle()
+        args.putString(ARG_NAME, brand.lowercase())
+        args.putString(ARG_MODEL, model.lowercase())
+        /*https://gist.github.com/codinginflow/a05784462aa8e2a60961539ecd803110 By Coding in Flow eind*/
+
         /*https://stackoverflow.com/questions/7793576/switching-between-fragment-view By Mats Hofman begin*/
         val fragment: Fragment = ModelYearCarsFragment()
+        fragment.arguments= args
         val fm: FragmentManager = parentFragmentManager
         val trans: FragmentTransaction = fm.beginTransaction()
         trans.replace(R.id.recModel, fragment).commit()
