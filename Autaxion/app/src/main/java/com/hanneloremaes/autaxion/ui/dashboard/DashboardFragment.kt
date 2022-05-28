@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -19,6 +18,7 @@ import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
 import com.hanneloremaes.autaxion.model.Car
 import com.hanneloremaes.autaxion.model.CarAdapter
 import com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment
+
 
 class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
 
@@ -43,7 +43,7 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
 
         val carRequest = JsonArrayRequest(
             Request.Method.GET, url, null, { response ->
-                for (car in 0 until response.length()){
+                for (car in 0 until response.length()) {
                     val objRes = response.getJSONObject(car)
                     val carBrandName = objRes.getString("name")
 
