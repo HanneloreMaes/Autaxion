@@ -20,10 +20,6 @@
     <string name="_325_km_h">325 km/h</string>
     <string name="top_speed">Type Drive</string>
     <string name="speed100km">Displacement</string>
-
-    <string name="serverUrl">https://private-anon-a867bc34bb-carsapi1.apiary-mock.com/cars</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="models">Models</string>
     <string name="car_displacement">L</string>
     <string name="v_cylinders">V</string>
