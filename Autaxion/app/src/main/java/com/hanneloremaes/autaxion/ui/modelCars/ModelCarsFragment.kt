@@ -6,26 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
-import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.hanneloremaes.autaxion.R
-import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
 import com.hanneloremaes.autaxion.databinding.FragmentModelCarsBinding
 import com.hanneloremaes.autaxion.model.*
-import com.hanneloremaes.autaxion.ui.dashboard.DashboardViewModel
-import com.hanneloremaes.autaxion.ui.detailCar.CarDetailFragment
 import com.hanneloremaes.autaxion.ui.modelYearCars.ModelYearCarsFragment
-import kotlinx.android.synthetic.main.fragment_dashboard.*
-import kotlinx.android.synthetic.main.fragment_model_card.*
 
 class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
     private val ARG_NAME = "argName"
