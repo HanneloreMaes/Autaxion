@@ -4,5 +4,5 @@ class YearModel (
     val make: String,
     val model: String,
     val year: Int,
-    val city_mpg: Int
+    val displacement: Int
 )
