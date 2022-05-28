@@ -12,6 +12,9 @@ import kotlinx.android.synthetic.main.fragment_model_year_card.view.*
 class YearModelAdapter(private val years: List<YearModel>, private val listener: OnItemClickListener) : RecyclerView.Adapter<YearModelAdapter.ViewHolder>(){
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
         val yearCar: TextView = itemView.yearCar
+        val brandCar: TextView = itemView.brandCar2
+        val modelCar: TextView = itemView.modelCar2
+        val displacementCar: TextView = itemView.displacementCar
 
         init {
             itemView.setOnClickListener(this)
@@ -37,6 +40,9 @@ class YearModelAdapter(private val years: List<YearModel>, private val listener:
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val year = years[position]
         holder.yearCar.text = year.year.toString()
+        holder.brandCar.text = year.make
+        holder.modelCar.text = year.model
+        holder.displacementCar.text = year.displacement.toString()
     }
 
     override fun getItemCount() = years.size
