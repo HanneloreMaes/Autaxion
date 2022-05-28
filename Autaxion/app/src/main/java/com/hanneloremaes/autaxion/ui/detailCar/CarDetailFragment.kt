@@ -55,8 +55,12 @@ class CarDetailFragment : Fragment(){
                     val cylinderCar = objRes.getInt("cylinders")
                     val displacementCar = objRes.getInt("displacement")
                     val driveCar = objRes.getString("drive").uppercase()
+                    if(driveCar != null){
+                        carsDetailList.add(DetailCar(fuel, carBrandName, carModelName, carYear, cylinderCar, displacementCar, driveCar))
+                    }else{
+                        carsDetailList.add(DetailCar(fuel, carBrandName, carModelName, carYear, cylinderCar, displacementCar, "Not available"))
+                    }
 
-                    carsDetailList.add(DetailCar(fuel, carBrandName, carModelName, carYear, cylinderCar, displacementCar, driveCar))
                 }
                 detail_brandCar.text = carsDetailList.get(position).make
                 detail_modelCar.text = carsDetailList.get(position).model
