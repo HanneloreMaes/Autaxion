@@ -36,8 +36,8 @@ class ModelCarAdapter(private val models: List<ModelCar>, private val listener: 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model = models[position]
-        holder.modelCar.text = model.Model_Name.uppercase()
-        holder.brandCar.text = model.Make_Name
+        holder.modelCar.text = model.model.uppercase()
+        holder.brandCar.text = model.model
     }
 
     override fun getItemCount() = models.size
