@@ -1,10 +1,12 @@
 package com.hanneloremaes.autaxion.ui.dashboard
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -18,14 +20,19 @@ import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
 import com.hanneloremaes.autaxion.model.Car
 import com.hanneloremaes.autaxion.model.CarAdapter
 import com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment
+import kotlinx.android.synthetic.main.fragment_car_card.*
+import kotlin.random.Random
 
 
 class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
 
+
     private val ARG_NAME = "argName"
     var carsBrandsList: MutableList<Car> = mutableListOf()
+
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +42,6 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
 
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
@@ -53,6 +59,7 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
                 val recyclerView: RecyclerView = binding.recyclerView
                 recyclerView.layoutManager = LinearLayoutManager(this.context)
                 recyclerView.adapter = CarAdapter(carsBrandsList, this)
+
             }, { Log.d("User-Error-Car", "Something went wrong") })
 
         queue.add(carRequest)
