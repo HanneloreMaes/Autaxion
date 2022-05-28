@@ -6,5 +6,6 @@ class DetailCar (
     val model: String,
     val year: Int,
     val cylinders: Int,
-    val displacement:Int
+    val displacement:Int,
+    val drive: String
         )
