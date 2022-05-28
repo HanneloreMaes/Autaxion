@@ -23,6 +23,7 @@ import com.hanneloremaes.autaxion.databinding.FragmentModelCarsBinding
 import com.hanneloremaes.autaxion.model.*
 import com.hanneloremaes.autaxion.ui.dashboard.DashboardViewModel
 import com.hanneloremaes.autaxion.ui.detailCar.CarDetailFragment
+import com.hanneloremaes.autaxion.ui.modelYearCars.ModelYearCarsFragment
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.android.synthetic.main.fragment_model_card.*
 
@@ -70,7 +71,7 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
 
     override fun onItemClick(position: Int) {
         /*https://stackoverflow.com/questions/7793576/switching-between-fragment-view By Mats Hofman begin*/
-        val fragment: Fragment = CarDetailFragment()
+        val fragment: Fragment = ModelYearCarsFragment()
         val fm: FragmentManager = parentFragmentManager
         val trans: FragmentTransaction = fm.beginTransaction()
         trans.replace(R.id.recModel, fragment).commit()
