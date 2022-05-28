@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -15,16 +14,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.material.textview.MaterialTextView
 import com.hanneloremaes.autaxion.R
 import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
 import com.hanneloremaes.autaxion.model.Car
 import com.hanneloremaes.autaxion.model.CarAdapter
 import com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment
 import kotlinx.android.synthetic.main.fragment_car_card.*
-import kotlinx.android.synthetic.main.fragment_dashboard.*
+
 
 class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
-
+    private val ARG_TEXT = "argText"
     var carsBrandsList: MutableList<Car> = mutableListOf()
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
@@ -66,8 +66,15 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
+        val test = carsBrandsList.get(position).name
+        /*https://gist.github.com/codinginflow/a05784462aa8e2a60961539ecd803110 By Coding in Flow begin*/
+        val args = Bundle()
+        args.putString(ARG_TEXT, test.lowercase())
+        /*https://gist.github.com/codinginflow/a05784462aa8e2a60961539ecd803110 By Coding in Flow eind*/
+
         /*https://stackoverflow.com/questions/7793576/switching-between-fragment-view By Mats Hofman begin*/
         val fragment: Fragment = ModelCarsFragment()
+        fragment.arguments = args
         val fm: FragmentManager = parentFragmentManager
         val trans: FragmentTransaction = fm.beginTransaction()
         trans.replace(R.id.recDas, fragment).commit()
