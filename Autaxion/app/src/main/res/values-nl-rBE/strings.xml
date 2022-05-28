@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_dashboard">Auto</string>
+    <string name="title_notifications">Zoeken</string>
+    <string name="details">Eigenschappen</string>
+    <string name="image_default">afbeelding-standaard</string>
+    <string name="engine">Soort motor</string>
+    <string name="year">Jaar</string>
+    <string name="top_speed">Wielaandrijving</string>
+    <string name="speed100km">Verbruik</string>
+    <string name="models">Modellen</string>
+</resources>

@@ -1,26 +1,26 @@
 <resources>
-    <string name="app_name">Autaxion</string>
-    <string name="title_home">Home</string>
+    <string name="app_name" translatable="false">Autaxion</string>
+    <string name="title_home" translatable="false">Home</string>
     <string name="title_dashboard">Car</string>
     <string name="title_notifications">Search</string>
-    <string name="ford_mustang_brand">Ford Mustang</string>
-    <string name="logo">Logo</string>
-    <string name="ford_model">Mach-E</string>
-    <string name="ferrari_model">488 Spider</string>
-    <string name="ferrari_brand">Ferrari</string>
+    <string name="ford_mustang_brand" translatable="false">Ford Mustang</string>
+    <string name="logo" translatable="false">Logo</string>
+    <string name="ford_model" translatable="false">Mach-E</string>
+    <string name="ferrari_model" translatable="false">488 Spider</string>
+    <string name="ferrari_brand" translatable="false">Ferrari</string>
     <string name="details">Details</string>
     <string name="image_default">image-default</string>
-    <string name="pkFerrariSpider">670pk</string>
+    <string name="pkFerrariSpider" translatable="false">670pk</string>
     <string name="engine">Type Engine</string>
-    <string name="motor">Motor</string>
-    <string name="cilindersFerrari">8</string>
-    <string name="buildingyear">2015</string>
+    <string name="motor" translatable="false">Motor</string>
+    <string name="cilindersFerrari" translatable="false">8</string>
+    <string name="buildingyear" translatable="false">2015</string>
     <string name="year">Year</string>
-    <string name="accelarationSpeed">3,0</string>
-    <string name="_325_km_h">325 km/h</string>
+    <string name="accelarationSpeed" translatable="false">3,0</string>
+    <string name="_325_km_h" translatable="false">325 km/h</string>
     <string name="top_speed">Type Drive</string>
     <string name="speed100km">Displacement</string>
     <string name="models">Models</string>
-    <string name="car_displacement">L</string>
-    <string name="v_cylinders">V</string>
+    <string name="car_displacement" translatable="false">L</string>
+    <string name="v_cylinders" translatable="false">V</string>
 </resources>
