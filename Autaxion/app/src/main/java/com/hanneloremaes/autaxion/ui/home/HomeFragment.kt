@@ -1,10 +1,12 @@
 package com.hanneloremaes.autaxion.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.hanneloremaes.autaxion.HomeDetailCar
 import com.hanneloremaes.autaxion.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -24,7 +26,10 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
+        binding.btnHomeDetail.setOnClickListener {
+            val intent = Intent(this@HomeFragment.requireContext(), HomeDetailCar::class.java)
+            startActivity(intent)
+        }
         return root
     }
 
