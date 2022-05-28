@@ -53,7 +53,7 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
                 val recyclerView: RecyclerView = binding.recyclerView
                 recyclerView.layoutManager = LinearLayoutManager(this.context)
                 recyclerView.adapter = CarAdapter(carsBrandsList, this)
-            }, { Log.d("User", "Something went wrong") })
+            }, { Log.d("User-Error-Car", "Something went wrong") })
 
         queue.add(carRequest)
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/

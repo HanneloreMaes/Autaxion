@@ -36,7 +36,7 @@ class CarDetailFragment : Fragment(){
         val brandData = args?.get("argBrand")
         val modelData = args?.get("argModel")
         val yearData = args?.get("argYear")
-        Log.d("User-Year", "Brand: $brandData : $modelData: $yearData")
+        Log.d("Arguments-Year", "Brand: $brandData : $modelData: $yearData")
 
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
@@ -67,7 +67,7 @@ class CarDetailFragment : Fragment(){
                 topSpeed.text = carsDetailList.get(position).drive
 
 
-            }, Response.ErrorListener { Log.d("User-Detail", "Something went wrong") })
+            }, Response.ErrorListener { Log.d("User-Error-Detail", "Something went wrong") })
         /*https://syntaxfix.com/question/16326/how-to-set-custom-header-in-volley-request By Unknown begin*/
         {
             @Throws(AuthFailureError::class)
