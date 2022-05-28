@@ -30,4 +30,5 @@
     <string name="_68_kwh" translatable="false">68 kWh</string>
     <string name="electrisch">Electric</string>
     <string name="batterij">Battery</string>
+    <string name="rwd" translatable="false">RWD</string>
 </resources>
