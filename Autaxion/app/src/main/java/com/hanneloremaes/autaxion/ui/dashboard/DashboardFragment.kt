@@ -43,7 +43,7 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
 
         val carRequest = JsonArrayRequest(
             Request.Method.GET, url, null, { response ->
-                for (car in 0..39){
+                for (car in 0 until response.length()){
                     val objRes = response.getJSONObject(car)
                     val carBrandName = objRes.getString("name")
 
