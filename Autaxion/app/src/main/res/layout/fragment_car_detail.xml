@@ -28,11 +28,12 @@
             android:textAlignment="center"/>
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginTop="30dp"
-            android:contentDescription="@string/image_ferrari"
-            android:src="@drawable/ferrari_488_spider"/>
+            android:contentDescription="@string/image_default"
+            android:scaleType="fitCenter"
+            android:src="@drawable/image_0" />
 
 
         <LinearLayout
