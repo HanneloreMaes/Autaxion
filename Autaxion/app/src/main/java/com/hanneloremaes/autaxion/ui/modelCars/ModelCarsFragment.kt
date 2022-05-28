@@ -48,7 +48,7 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
 
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
-        val url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/chrysler?format=json"
+        val url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${brandData}?format=json"
 
         val modelRequest = JsonObjectRequest(
             Request.Method.GET, url, null, { response ->
