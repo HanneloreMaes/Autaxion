@@ -175,7 +175,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/red"
-                            android:text="RWD"
+                            android:text="@string/rwd"
                             android:textSize="35sp"
                             android:textAlignment="center"/>
 
@@ -191,8 +191,6 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
