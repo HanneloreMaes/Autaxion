@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/ferrari_model"
             android:textColor="@color/red"
             android:textSize="30sp"
             android:textAlignment="center"/>
@@ -24,7 +23,6 @@
             android:id="@+id/detail_brandCar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ferrari_brand"
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textAlignment="center"/>
@@ -52,7 +50,6 @@
                     android:id="@+id/detail_horsepower"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/pkFerrariSpider"
                     android:textColor="@color/red"
                     android:textSize="35sp"
                     android:textAlignment="center"/>
@@ -88,7 +85,6 @@
                         android:id="@+id/detail_engine"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/cilindersFerrari"
                         android:textColor="@color/red"
                         android:textSize="35sp"
                         android:textAlignment="center"/>
@@ -114,7 +110,6 @@
                     android:id="@+id/detail_year"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/buildingyear"
                     android:textColor="@color/red"
                     android:textSize="35sp"
                     android:textAlignment="center"/>
@@ -152,7 +147,7 @@
                         android:id="@+id/accelerate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/accelarationSpeed"
+                        android:layout_marginEnd="0dp"
                         android:textColor="@color/red"
                         android:textSize="35sp"
                         android:textAlignment="center"/>
@@ -163,7 +158,7 @@
                         android:text="@string/car_displacement"
                         android:textColor="@color/red"
                         android:textSize="35sp"
-                        android:layout_marginStart="2dp"
+                        android:layout_marginStart="1dp"
                         android:textAlignment="center"/>
 
                 </LinearLayout>
@@ -187,7 +182,6 @@
                     android:id="@+id/topSpeed"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/_325_km_h"
                     android:textColor="@color/red"
                     android:textSize="35sp"
                     android:textAlignment="center"/>
