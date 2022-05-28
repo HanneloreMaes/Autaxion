@@ -16,7 +16,6 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.hanneloremaes.autaxion.R
-import com.hanneloremaes.autaxion.databinding.FragmentCarDetailBinding
 import com.hanneloremaes.autaxion.databinding.FragmentModelYearCarsBinding
 import com.hanneloremaes.autaxion.model.CarAdapter
 import com.hanneloremaes.autaxion.model.DetailCar
