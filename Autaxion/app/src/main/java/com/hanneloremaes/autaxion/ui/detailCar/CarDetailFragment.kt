@@ -10,17 +10,14 @@ import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.google.gson.Gson
 import com.hanneloremaes.autaxion.databinding.FragmentCarDetailBinding
 import com.hanneloremaes.autaxion.model.DetailCar
-import com.hanneloremaes.autaxion.model.YearModel
 import kotlinx.android.synthetic.main.fragment_car_detail.*
-import org.json.JSONObject
 
 class CarDetailFragment : Fragment(){
 
+    private var position: Int = 0
     var carsDetailList: MutableList<DetailCar> = mutableListOf()
     private var _binding: FragmentCarDetailBinding? = null
     private val binding get() = _binding!!
@@ -48,25 +45,29 @@ class CarDetailFragment : Fragment(){
 
         val detailRequest: JsonArrayRequest = object: JsonArrayRequest(
             Request.Method.GET, url, null, Response.Listener { response ->
-                Log.d("Hannelore", "Info: $response")
+                Log.d("User-Detail", "Info: $response")
                 for (car in 0..(response.length()-1)){
                     val objRes = response.getJSONObject(car)
-                    val fuel = objRes.getString("fuel_type")
-                    val carBrandName = objRes.getString("make")
-                    val carModelName = objRes.getString("model")
+                    val fuel = objRes.getString("fuel_type").uppercase()
+                    val carBrandName = objRes.getString("make").uppercase()
+                    val carModelName = objRes.getString("model").uppercase()
                     val carYear = objRes.getInt("year")
                     val cylinderCar = objRes.getInt("cylinders")
                     val displacementCar = objRes.getInt("displacement")
-                    val driveCar = objRes.getString("drive")
-
-                    Log.d("Hannelore", "Info: $carBrandName : $carModelName : $carYear")
+                    val driveCar = objRes.getString("drive").uppercase()
 
                     carsDetailList.add(DetailCar(fuel, carBrandName, carModelName, carYear, cylinderCar, displacementCar, driveCar))
                 }
+                detail_brandCar.text = carsDetailList.get(position).make
+                detail_modelCar.text = carsDetailList.get(position).model
+                detail_horsepower.text = carsDetailList.get(position).fuel_type
+                detail_engine.text = carsDetailList.get(position).cylinders.toString()
+                detail_year.text = carsDetailList.get(position).year.toString()
+                accelerate.text = carsDetailList.get(position).displacement.toString()
+                topSpeed.text = carsDetailList.get(position).drive
 
 
-
-            }, Response.ErrorListener { Log.d("User", "Something went wrong") })
+            }, Response.ErrorListener { Log.d("User-Detail", "Something went wrong") })
         /*https://syntaxfix.com/question/16326/how-to-set-custom-header-in-volley-request By Unknown begin*/
         {
             @Throws(AuthFailureError::class)
