@@ -11,19 +11,20 @@
     <string name="details">Details</string>
     <string name="image_ferrari">image-ferrari</string>
     <string name="pkFerrariSpider">670pk</string>
-    <string name="horsepower">Horsepower</string>
-    <string name="_11l_engine">11l engine</string>
-    <string name="cilindersFerrari">V8</string>
+    <string name="engine">Type Engine</string>
+    <string name="motor">Motor</string>
+    <string name="cilindersFerrari">8</string>
     <string name="buildingyear">2015</string>
-    <string name="year">year</string>
-    <string name="accelarationSpeed">3,0s</string>
+    <string name="year">Year</string>
+    <string name="accelarationSpeed">3,0</string>
     <string name="_325_km_h">325 km/h</string>
-    <string name="top_speed">Top Speed</string>
-    <string name="speed100km">0–100 km/h</string>
+    <string name="top_speed">Type Drive</string>
+    <string name="speed100km">Displacement</string>
 
     <string name="serverUrl">https://private-anon-a867bc34bb-carsapi1.apiary-mock.com/cars</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="models">Models</string>
     <string name="car_displacement">L</string>
+    <string name="v_cylinders">V</string>
 </resources>
