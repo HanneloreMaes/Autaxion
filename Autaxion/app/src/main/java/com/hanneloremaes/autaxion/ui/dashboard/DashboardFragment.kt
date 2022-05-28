@@ -48,10 +48,9 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
             Request.Method.GET, url, null, { response ->
                 for (car in 0..39){
                     val objRes = response.getJSONObject(car)
-                    val idCar = objRes.getInt("id")
                     val carBrandName = objRes.getString("name")
 
-                    carsBrandsList.add(Car(idCar, carBrandName))
+                    carsBrandsList.add(Car(carBrandName))
                 }
 
                 val recyclerView: RecyclerView = binding.recyclerView
