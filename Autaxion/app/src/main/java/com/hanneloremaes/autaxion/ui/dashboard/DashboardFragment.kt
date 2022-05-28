@@ -64,8 +64,15 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
+        val brand = carsBrandsList.get(position).name
+        /*https://gist.github.com/codinginflow/a05784462aa8e2a60961539ecd803110 By Coding in Flow begin*/
+        val args = Bundle()
+        args.putString(ARG_NAME, brand.lowercase())
+        /*https://gist.github.com/codinginflow/a05784462aa8e2a60961539ecd803110 By Coding in Flow eind*/
+
         /*https://stackoverflow.com/questions/7793576/switching-between-fragment-view By Mats Hofman begin*/
         val fragment: Fragment = ModelCarsFragment()
+        fragment.arguments = args
         val fm: FragmentManager = parentFragmentManager
         val trans: FragmentTransaction = fm.beginTransaction()
         trans.replace(R.id.recDas, fragment).commit()
