@@ -46,6 +46,7 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
 
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
+//        val url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${brandData}?format=json"
         val url = "https://api.api-ninjas.com/v1/cars?limit=30&make=${brandData}"
 
         val modelRequest: JsonArrayRequest = object: JsonArrayRequest(
@@ -63,7 +64,7 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
                 recyclerView.layoutManager = LinearLayoutManager(this.context)
                 recyclerView.adapter = ModelCarAdapter(carsModelsList, this)
 
-            }, Response.ErrorListener{ Log.d("User-Error-Model", "Something went wrong") })
+            }, Response.ErrorListener { Log.d("User-Error-ModelCars", "Something went wrong") })
         {
             @Throws(AuthFailureError::class)
             override fun getHeaders(): Map<String, String> {
