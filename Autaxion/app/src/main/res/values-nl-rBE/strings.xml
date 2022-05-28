@@ -9,4 +9,6 @@
     <string name="top_speed">Wielaandrijving</string>
     <string name="speed100km">Verbruik</string>
     <string name="models">Modellen</string>
+    <string name="electrisch">Electrisch</string>
+    <string name="batterij">Batterij</string>
 </resources>

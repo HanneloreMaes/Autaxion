@@ -23,11 +23,11 @@
     <string name="models">Models</string>
     <string name="car_displacement" translatable="false">L</string>
     <string name="v_cylinders" translatable="false">V</string>
-    <string name="mustang_mach_e">Mustang Mach-E</string>
-    <string name="ford">Ford</string>
-    <string name="electrisch">Electrisch</string>
-    <string name="batterij">Batterij</string>
-    <string name="lithium_ion">Lithium-ion</string>
-    <string name="jaar">2022</string>
-    <string name="_68_kwh">68 kWh</string>
+    <string name="mustang_mach_e" translatable="false">Mustang Mach-E</string>
+    <string name="ford" translatable="false">Ford</string>
+    <string name="lithium_ion" translatable="false">Lithium-ion</string>
+    <string name="jaar" translatable="false">2022</string>
+    <string name="_68_kwh" translatable="false">68 kWh</string>
+    <string name="electrisch">Electric</string>
+    <string name="batterij">Battery</string>
 </resources>
