@@ -2,29 +2,62 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/detailContainer"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.detailCar.CarDetailFragment"
     android:background="@android:color/black">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/recToolbarDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/black">
+
+        <Button
+            android:id="@+id/backBtnDetail"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/ic_back_arrow"/>
+
+        <TextView
+            android:id="@+id/nameFragmentDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_home"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="535dp"/>
+
+        <CheckBox
+            android:id="@+id/saveBtnDetail"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/checkbox_selector"
+            android:button="@null"
+            android:gravity="center"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="55dp"
         android:paddingBottom="60dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <CheckBox
-                android:layout_width="37dp"
-                android:layout_height="37dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/checkbox_selector"
-                android:button="@null"
-                android:gravity="center" />
 
             <TextView
                 android:id="@+id/detail_modelCar"
