@@ -208,7 +208,13 @@
                     android:textAlignment="center"/>
             </LinearLayout>
         </LinearLayout>
-
+        <TextView
+            android:id="@+id/idCar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="1sp"
+            tools:ignore="SmallSp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
