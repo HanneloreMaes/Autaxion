@@ -22,9 +22,8 @@ import java.lang.Exception
 
 class CarDetailFragment : Fragment(){
 
-
-
-
+    private val db = FirebaseFirestore.getInstance().collection("Favorites")
+    
     private var position: Int = 0
     var carsDetailList: MutableList<DetailCar> = mutableListOf()
     private var _binding: FragmentCarDetailBinding? = null
