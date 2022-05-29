@@ -27,13 +27,17 @@ import com.hanneloremaes.autaxion.ui.detailCar.CarDetailFragment
 import com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment
 
 class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
+    private var _binding: FragmentModelYearCarsBinding? = null
+    private val binding get() = _binding!!
+
     private val ARG_BRAND = "argBrand"
     private val ARG_BRAND2 = "argBrand2"
     private val ARG_MODEL = "argModel"
     private val ARG_Year = "argYear"
+
+    private lateinit var toolbar: Toolbar
+
     var modelYearList: MutableList<YearModel> = mutableListOf()
-    private var _binding: FragmentModelYearCarsBinding? = null
-    private val binding get() = _binding!!
     private val api_key: String = "9gLyMNOM1kYEpyMKkLpoAg==ERVCQ4Gl57qfMsEK"
 
     override fun onCreateView(
@@ -45,11 +49,9 @@ class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
         _binding = FragmentModelYearCarsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val toolbar: Toolbar = binding.recToolbarModel
-
+        toolbar = binding.recToolbarModel
         val text: TextView = binding.nameFragmentModel
         text.text = getString(R.string.models)
-
         val btn: Button = binding.backBtnFragmentModel
 
 
@@ -186,7 +188,7 @@ class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
             /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
 
             btn.setOnClickListener { void: View? ->
-                val brandBtn = brandData3.toString()
+                val brandBtn = brandData.toString()
                 val args2 = Bundle()
                 args2.putString(ARG_BRAND2, brandBtn.lowercase())
 
