@@ -5,23 +5,31 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.google.firebase.firestore.FirebaseFirestore
+import com.hanneloremaes.autaxion.R
 import com.hanneloremaes.autaxion.databinding.FragmentCarDetailBinding
 import com.hanneloremaes.autaxion.model.DetailCar.DetailCar
+import com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment
+import com.hanneloremaes.autaxion.ui.modelYearCars.ModelYearCarsFragment
 import kotlinx.android.synthetic.main.fragment_car_detail.*
 import java.lang.Exception
 import java.util.*
 import kotlin.collections.HashMap
 
 class CarDetailFragment : Fragment(){
+
+    private val ARG_BRAND3 = "argBrand3"
+    private val ARG_MODEL3 = "argModel3"
 
     private val db = FirebaseFirestore.getInstance().collection("Favorites")
 
@@ -98,7 +106,20 @@ class CarDetailFragment : Fragment(){
         queue.add(detailRequest)
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
 
+        val btnSave: Button? = binding.backBtnDetail
+        btnSave?.setOnClickListener { void: View? ->
+            val brandBtn = brandData.toString()
+            val modelBtn = modelData.toString()
+            val args2 = Bundle()
+            args2.putString(ARG_BRAND3, brandBtn.lowercase())
+            args2.putString(ARG_MODEL3, modelBtn.lowercase())
 
+            val fragment: Fragment = ModelYearCarsFragment()
+            fragment.arguments = args2
+            val fr: FragmentManager = childFragmentManager
+            fr.beginTransaction().replace(R.id.detailContainer, fragment).commit()
+            btnSave.visibility = View.GONE
+        }
         val btnStore: CheckBox? = binding.saveBtnDetail
 
         btnStore?.setOnClickListener {
