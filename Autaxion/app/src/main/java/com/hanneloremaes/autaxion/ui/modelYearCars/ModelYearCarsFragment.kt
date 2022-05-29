@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,10 +22,13 @@ import com.hanneloremaes.autaxion.R
 import com.hanneloremaes.autaxion.databinding.FragmentModelYearCarsBinding
 import com.hanneloremaes.autaxion.model.YearModelCar.YearModel
 import com.hanneloremaes.autaxion.model.YearModelCar.YearModelAdapter
+import com.hanneloremaes.autaxion.ui.dashboard.DashboardFragment
 import com.hanneloremaes.autaxion.ui.detailCar.CarDetailFragment
+import com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment
 
 class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
     private val ARG_BRAND = "argBrand"
+    private val ARG_BRAND2 = "argBrand2"
     private val ARG_MODEL = "argModel"
     private val ARG_Year = "argYear"
     var modelYearList: MutableList<YearModel> = mutableListOf()
@@ -38,6 +44,14 @@ class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
 
         _binding = FragmentModelYearCarsBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        val toolbar: Toolbar = binding.recToolbarModel
+
+        val text: TextView = binding.nameFragmentModel
+        text.text = getString(R.string.models)
+
+        val btn: Button = binding.backBtnFragmentModel
+
 
         val args = this.arguments
         val brandData = args?.get("argName")
@@ -99,6 +113,17 @@ class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
 
         queue.add(detailRequest)
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
+        btn.setOnClickListener { void: View? ->
+            val brandBtn = brandData.toString()
+            val args2 = Bundle()
+            args2.putString(ARG_BRAND2, brandBtn.lowercase())
+
+            val fragment: Fragment = ModelCarsFragment()
+            fragment.arguments = args2
+            val fr: FragmentManager = childFragmentManager
+            fr.beginTransaction().replace(R.id.recYear, fragment).commit()
+            btn.visibility = View.GONE
+        }
 
         return root
     }
