@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setSupportActionBar(findViewById(R.id.home_toolbar))
+
         val navView: BottomNavigationView = binding.navView
 
         //Zetten van juiste kleur voor nav
