@@ -18,8 +18,12 @@
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/heart_checkbox.xml" value="0.2005" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/heart_checkbox_filled.xml" value="0.2005" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_back_arrow.xml" value="0.2005" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_home.xml" value="0.15" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.208" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_home_red.xml" value="0.15" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_home_selector.xml" value="0.15" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_racing_car.xml" value="0.15" />
+        <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_racing_car_red.xml" value="0.15" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/ic_search_red.xml" value="0.15" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/drawable/search_selector.xml" value="0.15" />
         <entry key="..\:/Android/Autaxion/Autaxion/app/src/main/res/layout-land/activity_home_detail_car.xml" value="0.176" />
