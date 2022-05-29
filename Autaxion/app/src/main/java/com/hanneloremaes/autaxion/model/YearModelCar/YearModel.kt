@@ -1,4 +1,4 @@
-package com.hanneloremaes.autaxion.model
+package com.hanneloremaes.autaxion.model.YearModelCar
 
 class YearModel (
     val make: String,
