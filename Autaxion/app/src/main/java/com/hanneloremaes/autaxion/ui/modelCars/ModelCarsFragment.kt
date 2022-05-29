@@ -57,40 +57,74 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
         }
 
         val args = this.arguments
-        val brandData = args?.get("argName")
+        val brandData = args?.get("argBrand")
+        val brandData2 = args?.get("argBrand2")
         Log.d("Arguments-Model", "Brand: $brandData")
+        Log.d("Arguments-Model2", "Brand: $brandData2")
 
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
 //        val url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${brandData}?format=json"
-        val url = "https://api.api-ninjas.com/v1/cars?limit=30&make=${brandData}"
+        if (brandData != null){
+            val url = "https://api.api-ninjas.com/v1/cars?limit=30&make=${brandData}"
 
-        val modelRequest: JsonArrayRequest = object: JsonArrayRequest(
-            Request.Method.GET, url, null, Response.Listener { response ->
-                Log.d("User-ModelCars", "Info: $response")
-                for (car in 0 until response.length()){
-                    val objRes = response.getJSONObject(car)
-                    val carBrandName = objRes.getString("make")
-                    val carModelName = objRes.getString("model")
+            val modelRequest: JsonArrayRequest = object: JsonArrayRequest(
+                Request.Method.GET, url, null, Response.Listener { response ->
+                    Log.d("User-ModelCars", "Info: $response")
+                    for (car in 0 until response.length()){
+                        val objRes = response.getJSONObject(car)
+                        val carBrandName = objRes.getString("make")
+                        val carModelName = objRes.getString("model")
 
-                    carsModelsList.add(ModelCar(carBrandName, carModelName))
+                        carsModelsList.add(ModelCar(carBrandName, carModelName))
+                    }
+
+                    val recyclerView: RecyclerView = binding.recyclerView
+                    recyclerView.layoutManager = LinearLayoutManager(this.context)
+                    recyclerView.adapter = ModelCarAdapter(carsModelsList, this)
+
+                }, Response.ErrorListener { Log.d("User-Error-ModelCars", "Something went wrong") })
+            {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val params = HashMap<String, String>()
+                    params["X-Api-Key"] = api_key
+                    return params
                 }
-
-                val recyclerView: RecyclerView = binding.recyclerView
-                recyclerView.layoutManager = LinearLayoutManager(this.context)
-                recyclerView.adapter = ModelCarAdapter(carsModelsList, this)
-
-            }, Response.ErrorListener { Log.d("User-Error-ModelCars", "Something went wrong") })
-        {
-            @Throws(AuthFailureError::class)
-            override fun getHeaders(): Map<String, String> {
-                val params = HashMap<String, String>()
-                params["X-Api-Key"] = api_key
-                return params
             }
+            queue.add(modelRequest)
+        }else{
+            val url = "https://api.api-ninjas.com/v1/cars?limit=30&make=${brandData2}"
+            val modelRequest: JsonArrayRequest = object: JsonArrayRequest(
+                Request.Method.GET, url, null, Response.Listener { response ->
+                    Log.d("User-ModelCars", "Info: $response")
+                    for (car in 0 until response.length()){
+                        val objRes = response.getJSONObject(car)
+                        val carBrandName = objRes.getString("make")
+                        val carModelName = objRes.getString("model")
+
+                        carsModelsList.add(ModelCar(carBrandName, carModelName))
+                    }
+
+                    val recyclerView: RecyclerView = binding.recyclerView
+                    recyclerView.layoutManager = LinearLayoutManager(this.context)
+                    recyclerView.adapter = ModelCarAdapter(carsModelsList, this)
+
+                }, Response.ErrorListener { Log.d("User-Error-ModelCars", "Something went wrong") })
+            {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val params = HashMap<String, String>()
+                    params["X-Api-Key"] = api_key
+                    return params
+                }
+            }
+            queue.add(modelRequest)
         }
 
-        queue.add(modelRequest)
+
+
+
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
 
         toolbar.setOnClickListener {
