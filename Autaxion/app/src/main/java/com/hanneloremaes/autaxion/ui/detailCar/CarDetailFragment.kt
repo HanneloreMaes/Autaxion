@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -19,6 +18,8 @@ import com.hanneloremaes.autaxion.databinding.FragmentCarDetailBinding
 import com.hanneloremaes.autaxion.model.DetailCar
 import kotlinx.android.synthetic.main.fragment_car_detail.*
 import java.lang.Exception
+import java.util.*
+import kotlin.collections.HashMap
 
 class CarDetailFragment : Fragment(){
 
@@ -39,6 +40,8 @@ class CarDetailFragment : Fragment(){
         _binding = FragmentCarDetailBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val random2 = Random().nextInt(10000) + 1
+
         val args = this.arguments
         val brandData = args?.get("argBrand")
         val modelData = args?.get("argModel")
@@ -55,6 +58,7 @@ class CarDetailFragment : Fragment(){
                 Log.d("User-Detail", "Info: $response")
                 for (car in 0 until response.length()){
                     val objRes = response.getJSONObject(car)
+                    val idCar = random2
                     val fuel = objRes.getString("fuel_type").uppercase()
                     val carBrandName = objRes.getString("make").uppercase()
                     val carModelName = objRes.getString("model").uppercase()
@@ -63,12 +67,13 @@ class CarDetailFragment : Fragment(){
                     val displacementCar = objRes.getInt("displacement")
                     val driveCar = objRes.getString("drive").uppercase()
                     if(driveCar != null){
-                        carsDetailList.add(DetailCar(fuel, carBrandName, carModelName, carYear, cylinderCar, displacementCar, driveCar))
+                        carsDetailList.add(DetailCar(idCar, fuel, carBrandName, carModelName, carYear, cylinderCar, displacementCar, driveCar))
                     }else{
-                        carsDetailList.add(DetailCar(fuel, carBrandName, carModelName, carYear, cylinderCar, displacementCar, "Not available"))
+                        carsDetailList.add(DetailCar(idCar, fuel, carBrandName, carModelName, carYear, cylinderCar, displacementCar, "Not available"))
                     }
 
                 }
+                idCar.text = carsDetailList.get(position).idCar.toString()
                 detail_brandCar.text = carsDetailList.get(position).make
                 detail_modelCar.text = carsDetailList.get(position).model
                 detail_horsepower.text = carsDetailList.get(position).fuel_type
@@ -105,6 +110,7 @@ class CarDetailFragment : Fragment(){
 
     /*https://www.youtube.com/watch?v=yKSuB5COWL4 By Winision begin*/
     private fun store(){
+        val id = idCar.text
         val brand = detail_brandCar.text
         val model = detail_modelCar.text
         val horsepower = detail_horsepower.text
@@ -116,6 +122,7 @@ class CarDetailFragment : Fragment(){
         if (brand != null){
             try {
                 val items = HashMap<String, Any>()
+                items.put("Id", id)
                 items.put("Brand", brand)
                 items.put("Model", model)
                 items.put("Horsepower", horsepower)
@@ -123,7 +130,7 @@ class CarDetailFragment : Fragment(){
                 items.put("Year", year)
                 items.put("Accelerate", accelerate)
                 items.put("Speed", speed)
-                db.document("CarSaved${accelerate}").set(items).addOnSuccessListener {
+                db.document("CarSaved${id}").set(items).addOnSuccessListener {
                         void: Void? -> Toast.makeText(this.context, "Saved To Db", Toast.LENGTH_LONG).show()
                 }.addOnFailureListener {
                         exception: java.lang.Exception -> Toast.makeText(this.context, exception.toString(), Toast.LENGTH_LONG).show()
