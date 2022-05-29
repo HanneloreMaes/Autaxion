@@ -17,10 +17,8 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.hanneloremaes.autaxion.R
 import com.hanneloremaes.autaxion.databinding.FragmentModelYearCarsBinding
-import com.hanneloremaes.autaxion.model.CarAdapter
-import com.hanneloremaes.autaxion.model.DetailCar
-import com.hanneloremaes.autaxion.model.YearModel
-import com.hanneloremaes.autaxion.model.YearModelAdapter
+import com.hanneloremaes.autaxion.model.YearModelCar.YearModel
+import com.hanneloremaes.autaxion.model.YearModelCar.YearModelAdapter
 import com.hanneloremaes.autaxion.ui.detailCar.CarDetailFragment
 
 class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{

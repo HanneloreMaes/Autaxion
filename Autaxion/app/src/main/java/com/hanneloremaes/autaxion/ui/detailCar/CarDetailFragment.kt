@@ -15,7 +15,7 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.google.firebase.firestore.FirebaseFirestore
 import com.hanneloremaes.autaxion.databinding.FragmentCarDetailBinding
-import com.hanneloremaes.autaxion.model.DetailCar
+import com.hanneloremaes.autaxion.model.DetailCar.DetailCar
 import kotlinx.android.synthetic.main.fragment_car_detail.*
 import java.lang.Exception
 import java.util.*

@@ -17,9 +17,9 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.hanneloremaes.autaxion.R
 import com.hanneloremaes.autaxion.databinding.FragmentModelCarsBinding
-import com.hanneloremaes.autaxion.model.*
+import com.hanneloremaes.autaxion.model.ModelCar.ModelCar
+import com.hanneloremaes.autaxion.model.ModelCar.ModelCarAdapter
 import com.hanneloremaes.autaxion.ui.modelYearCars.ModelYearCarsFragment
-import org.json.JSONObject
 
 class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
     private val ARG_NAME = "argName"

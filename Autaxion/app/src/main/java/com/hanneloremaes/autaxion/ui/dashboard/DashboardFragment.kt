@@ -15,8 +15,8 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.hanneloremaes.autaxion.R
 import com.hanneloremaes.autaxion.databinding.FragmentDashboardBinding
-import com.hanneloremaes.autaxion.model.Car
-import com.hanneloremaes.autaxion.model.CarAdapter
+import com.hanneloremaes.autaxion.model.Car.Car
+import com.hanneloremaes.autaxion.model.Car.CarAdapter
 import com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment
 
 
