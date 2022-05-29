@@ -112,7 +112,27 @@ class CarDetailFragment : Fragment(){
         val accelerate = accelerate.text
         val speed = topSpeed.text
 
-        
+        if (brand != null){
+            try {
+                val items = HashMap<String, Any>()
+                items.put("Brand", brand)
+                items.put("Model", model)
+                items.put("Horsepower", horsepower)
+                items.put("Enginge", enginge)
+                items.put("Year", year)
+                items.put("Accelerate", accelerate)
+                items.put("Speed", speed)
+                db.document("CarSaved${accelerate}").set(items).addOnSuccessListener {
+                        void: Void? -> Toast.makeText(this.context, "Saved To Db", Toast.LENGTH_LONG).show()
+                }.addOnFailureListener {
+                        exception: java.lang.Exception -> Toast.makeText(this.context, exception.toString(), Toast.LENGTH_LONG).show()
+                }
+            }catch (e: Exception){
+                Toast.makeText(this.context, e.toString(), Toast.LENGTH_LONG).show()
+            }
+        }else{
+            Toast.makeText(this.context, "Something went wrong", Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onDestroyView() {
