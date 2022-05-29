@@ -27,7 +27,7 @@ import com.hanneloremaes.autaxion.ui.dashboard.DashboardFragment
 import com.hanneloremaes.autaxion.ui.modelYearCars.ModelYearCarsFragment
 
 class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
-    private val ARG_NAME = "argName"
+    private val ARG_NAME = "argBrand"
     private val ARG_MODEL = "argModel"
     private val api_key: String = "9gLyMNOM1kYEpyMKkLpoAg==ERVCQ4Gl57qfMsEK"
     var carsModelsList: MutableList<ModelCar> = mutableListOf()
