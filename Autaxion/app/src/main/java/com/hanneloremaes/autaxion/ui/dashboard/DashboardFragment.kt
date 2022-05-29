@@ -23,7 +23,7 @@ import com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment
 class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
 
 
-    private val ARG_NAME = "argName"
+    private val ARG_Brand = "argBrand"
     var carsBrandsList: MutableList<Car> = mutableListOf()
 
     private var _binding: FragmentDashboardBinding? = null
@@ -68,7 +68,7 @@ class DashboardFragment : Fragment(), CarAdapter.OnItemClickListener {
         val brand = carsBrandsList.get(position).name
         /*https://gist.github.com/codinginflow/a05784462aa8e2a60961539ecd803110 By Coding in Flow begin*/
         val args = Bundle()
-        args.putString(ARG_NAME, brand.lowercase())
+        args.putString(ARG_Brand, brand.lowercase())
         /*https://gist.github.com/codinginflow/a05784462aa8e2a60961539ecd803110 By Coding in Flow eind*/
 
         /*https://stackoverflow.com/questions/7793576/switching-between-fragment-view By Mats Hofman begin*/
