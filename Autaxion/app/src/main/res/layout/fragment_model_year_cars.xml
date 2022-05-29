@@ -8,7 +8,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.modelYearCars.ModelYearCarsFragment">
-    <include layout="@layout/toolbar_custom_recycler"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/recToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <Button
+            android:id="@+id/backBtnFragmentCar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/ic_back_arrow"/>
+
+        <TextView
+            android:id="@+id/nameFragmentCar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/models"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="220dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
