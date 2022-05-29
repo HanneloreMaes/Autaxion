@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/recFav"
-    android:background="@color/black"
+    android:background="@color/white"
     tools:context=".ui.notifications.NotificationsFragment">
 
     <SearchView
         android:id="@+id/search_bar"
+        android:queryHint="Chrysler, Honda, Volvo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
