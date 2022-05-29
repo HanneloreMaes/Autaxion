@@ -54,75 +54,148 @@ class ModelYearCarsFragment : Fragment(), YearModelAdapter.OnItemClickListener{
 
 
         val args = this.arguments
-        val brandData = args?.get("argName")
+        val brandData = args?.get("argBrand")
         val modelData = args?.get("argModel")
+
+        val brandData3 = args?.get("argBrand3")
+        val modelData3 = args?.get("argModel3")
+
         Log.d("Arguments-ModelYearCar", "$brandData : $modelData")
+        Log.d("Arguments-ModelYearCar3", "$brandData3 : $modelData3")
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 begin*/
         val queue = Volley.newRequestQueue(this.context)
         //val url = "https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/chrysler?format=json"
 //        val url = "https://api.api-ninjas.com/v1/cars?make=chrysler&model=cirrus&year=1997"
-        val url = "https://api.api-ninjas.com/v1/cars?limit=15&make=$brandData&model=$modelData"
-//
-        val detailRequest: JsonArrayRequest = object: JsonArrayRequest(
-            Request.Method.GET, url, null, Response.Listener { response ->
-                Log.d("User-ModelYearCars", "${response}")
-                if(response.length() == 0){
-                    for(car in 0 until response.length()){
-                        Log.d("SUCCES-ModelYearCars", "If-statement modelYearCars == 1")
-                        //val objRes = response.getJSONObject(car)
-//                        val carBrandName = objRes.getString("make")
-//                        val carModelName = objRes.getString("model")
-//                        val carYear = objRes.getInt("year")
-//                        val displacementCar = objRes.getInt("displacement")
-//
-//                        Log.d("User-Year", "Info: $carBrandName : $carModelName : $carYear : $displacementCar")
-//
-//                        modelYearList.add(YearModel(carBrandName, carModelName, carYear, displacementCar))
-                    }
-                }else{
-                    Log.d("SUCCES-ModelYearCars", "If-statement modelYearCars != 1")
-                    for (car in 0 until response.length()){
-                        val objRes = response.getJSONObject(car)
-                        val carBrandName = objRes.getString("make")
-                        val carModelName = objRes.getString("model")
-                        val carYear = objRes.getInt("year")
-                        val displacementCar = objRes.getInt("displacement")
 
-                        Log.d("User-Year", "Info: $carBrandName : $carModelName : $carYear : $displacementCar")
+        if(modelData3 != null && brandData3 != null){
+            val url = "https://api.api-ninjas.com/v1/cars?limit=15&make=$brandData3&model=$modelData3"
+            val detailRequest: JsonArrayRequest = object: JsonArrayRequest(
+                Request.Method.GET, url, null, Response.Listener { response ->
+                    Log.d("User-ModelYearCars", "${response}")
+                    if(response.length() == 0){
+                        for(car in 0 until response.length()){
+                            Log.d("SUCCES-ModelYearCars", "If-statement modelYearCars == 1")
+                            val objRes = response.getJSONObject(car)
+                            val carBrandName = objRes.getString("make")
+                            val carModelName = objRes.getString("model")
+                            val carYear = objRes.getInt("year")
+                            val displacementCar = objRes.getInt("displacement")
 
-                        modelYearList.add(YearModel(carBrandName, carModelName, carYear, displacementCar))
+                            Log.d("User-Year", "Info: $carBrandName : $carModelName : $carYear : $displacementCar")
+
+                            modelYearList.add(YearModel(carBrandName, carModelName, carYear, displacementCar))
+                        }
+                    }else{
+                        Log.d("SUCCES-ModelYearCars", "If-statement modelYearCars != 1")
+                        for (car in 0 until response.length()){
+                            val objRes = response.getJSONObject(car)
+                            val carBrandName = objRes.getString("make")
+                            val carModelName = objRes.getString("model")
+                            val carYear = objRes.getInt("year")
+                            val displacementCar = objRes.getInt("displacement")
+
+                            Log.d("User-Year", "Info: $carBrandName : $carModelName : $carYear : $displacementCar")
+
+                            modelYearList.add(YearModel(carBrandName, carModelName, carYear, displacementCar))
+                        }
                     }
+
+
+                    val recyclerView: RecyclerView = binding.recyclerView
+                    recyclerView.layoutManager = LinearLayoutManager(this.context)
+                    recyclerView.adapter = YearModelAdapter(modelYearList, this)
+
+                }, Response.ErrorListener { Log.d("User-Error-ModelYear", "Something went wrong") })
+            /*https://syntaxfix.com/question/16326/how-to-set-custom-header-in-volley-request By Unknown begin*/
+            {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val params = HashMap<String, String>()
+                    params["X-Api-Key"] = api_key
+                    return params
                 }
-
-
-                val recyclerView: RecyclerView = binding.recyclerView
-                recyclerView.layoutManager = LinearLayoutManager(this.context)
-                recyclerView.adapter = YearModelAdapter(modelYearList, this)
-
-            }, Response.ErrorListener { Log.d("User-Error-ModelYear", "Something went wrong") })
-        /*https://syntaxfix.com/question/16326/how-to-set-custom-header-in-volley-request By Unknown begin*/
-        {
-            @Throws(AuthFailureError::class)
-            override fun getHeaders(): Map<String, String> {
-                val params = HashMap<String, String>()
-                params["X-Api-Key"] = api_key
-                return params
             }
-        }
-        /*https://syntaxfix.com/question/16326/how-to-set-custom-header-in-volley-request By Unknown eind*/
+            /*https://syntaxfix.com/question/16326/how-to-set-custom-header-in-volley-request By Unknown eind*/
 
-        queue.add(detailRequest)
-        /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
-        btn.setOnClickListener { void: View? ->
-            val brandBtn = brandData.toString()
-            val args2 = Bundle()
-            args2.putString(ARG_BRAND2, brandBtn.lowercase())
+            queue.add(detailRequest)
+            /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
 
-            val fragment: Fragment = ModelCarsFragment()
-            fragment.arguments = args2
-            val fr: FragmentManager = childFragmentManager
-            fr.beginTransaction().replace(R.id.recYear, fragment).commit()
-            btn.visibility = View.GONE
+            btn.setOnClickListener { void: View? ->
+                val brandBtn = brandData3.toString()
+                val args2 = Bundle()
+                args2.putString(ARG_BRAND2, brandBtn.lowercase())
+
+                val fragment: Fragment = ModelCarsFragment()
+                fragment.arguments = args2
+                val fr: FragmentManager = childFragmentManager
+                fr.beginTransaction().replace(R.id.recYear, fragment).commit()
+                btn.visibility = View.GONE
+            }
+
+        }else{
+            val url = "https://api.api-ninjas.com/v1/cars?limit=15&make=$brandData&model=$modelData"
+            val detailRequest: JsonArrayRequest = object: JsonArrayRequest(
+                Request.Method.GET, url, null, Response.Listener { response ->
+                    Log.d("User-ModelYearCars", "${response}")
+                    if(response.length() == 0){
+                        for(car in 0 until response.length()){
+                            Log.d("SUCCES-ModelYearCars", "If-statement modelYearCars == 1")
+                            val objRes = response.getJSONObject(car)
+                            val carBrandName = objRes.getString("make")
+                            val carModelName = objRes.getString("model")
+                            val carYear = objRes.getInt("year")
+                            val displacementCar = objRes.getInt("displacement")
+
+                            Log.d("User-Year", "Info: $carBrandName : $carModelName : $carYear : $displacementCar")
+
+                            modelYearList.add(YearModel(carBrandName, carModelName, carYear, displacementCar))
+                        }
+                    }else{
+                        Log.d("SUCCES-ModelYearCars", "If-statement modelYearCars != 1")
+                        for (car in 0 until response.length()){
+                            val objRes = response.getJSONObject(car)
+                            val carBrandName = objRes.getString("make")
+                            val carModelName = objRes.getString("model")
+                            val carYear = objRes.getInt("year")
+                            val displacementCar = objRes.getInt("displacement")
+
+                            Log.d("User-Year", "Info: $carBrandName : $carModelName : $carYear : $displacementCar")
+
+                            modelYearList.add(YearModel(carBrandName, carModelName, carYear, displacementCar))
+                        }
+                    }
+
+
+                    val recyclerView: RecyclerView = binding.recyclerView
+                    recyclerView.layoutManager = LinearLayoutManager(this.context)
+                    recyclerView.adapter = YearModelAdapter(modelYearList, this)
+
+                }, Response.ErrorListener { Log.d("User-Error-ModelYear", "Something went wrong") })
+            /*https://syntaxfix.com/question/16326/how-to-set-custom-header-in-volley-request By Unknown begin*/
+            {
+                @Throws(AuthFailureError::class)
+                override fun getHeaders(): Map<String, String> {
+                    val params = HashMap<String, String>()
+                    params["X-Api-Key"] = api_key
+                    return params
+                }
+            }
+            /*https://syntaxfix.com/question/16326/how-to-set-custom-header-in-volley-request By Unknown eind*/
+
+            queue.add(detailRequest)
+            /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
+
+            btn.setOnClickListener { void: View? ->
+                val brandBtn = brandData3.toString()
+                val args2 = Bundle()
+                args2.putString(ARG_BRAND2, brandBtn.lowercase())
+
+                val fragment: Fragment = ModelCarsFragment()
+                fragment.arguments = args2
+                val fr: FragmentManager = childFragmentManager
+                fr.beginTransaction().replace(R.id.recYear, fragment).commit()
+                btn.visibility = View.GONE
+            }
         }
 
         return root
