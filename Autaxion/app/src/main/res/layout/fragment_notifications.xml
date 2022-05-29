@@ -5,19 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/recFav"
-    android:background="@color/white"
+    android:background="@color/black"
     tools:context=".ui.notifications.NotificationsFragment">
 
     <SearchView
         android:id="@+id/search_bar"
         android:queryHint="Chrysler, Honda, Volvo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="15dp"
-        android:searchIcon="@drawable/ic_search_bar">
+        android:searchIcon="@drawable/ic_search_bar"
+        android:layout_height="?attr/actionBarSize"
+        app:theme="@style/AppTheme.Toolbar">
 
     </SearchView>
 </androidx.constraintlayout.widget.ConstraintLayout>
