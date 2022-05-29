@@ -2,39 +2,86 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
     tools:context=".HomeDetailCar">
+<!--    <include -->
+<!--        android:id="@+id/toolbarDetail"-->
+<!--        layout="@layout/toolbar_custom_detail"/>-->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/detail_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <Button
+            android:id="@+id/backBtnActivity"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/ic_back_arrow"/>
+
+        <TextView
+            android:id="@+id/nameFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_home"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="220dp"/>
+
+        <CheckBox
+            android:id="@+id/saveBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/checkbox_selector"
+            android:button="@null"
+            android:gravity="center"/>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="55dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
 
-            <ImageButton
-                android:id="@+id/backBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="300dp"
-                android:background="@drawable/ic_back_arrow"/>
-            <CheckBox
-                android:layout_width="37dp"
-                android:layout_height="37dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/checkbox_selector"
-                android:button="@null"
-                android:gravity="center" />
-        </LinearLayout>
+<!--            <ImageButton-->
+<!--                android:id="@+id/backBtn"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="20dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginEnd="300dp"-->
+<!--                android:background="@drawable/ic_back_arrow"/>-->
+<!--            <CheckBox-->
+<!--                android:layout_width="37dp"-->
+<!--                android:layout_height="37dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@drawable/checkbox_selector"-->
+<!--                android:button="@null"-->
+<!--                android:gravity="center" />-->
+<!--        </LinearLayout>-->
 
 
         <TextView
