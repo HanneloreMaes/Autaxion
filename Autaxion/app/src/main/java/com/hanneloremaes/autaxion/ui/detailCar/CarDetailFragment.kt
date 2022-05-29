@@ -5,6 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -15,8 +18,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.hanneloremaes.autaxion.databinding.FragmentCarDetailBinding
 import com.hanneloremaes.autaxion.model.DetailCar
 import kotlinx.android.synthetic.main.fragment_car_detail.*
+import java.lang.Exception
 
 class CarDetailFragment : Fragment(){
+
+
+
 
     private var position: Int = 0
     var carsDetailList: MutableList<DetailCar> = mutableListOf()
@@ -32,22 +39,6 @@ class CarDetailFragment : Fragment(){
 
         _binding = FragmentCarDetailBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        //FireStore
-        val db = FirebaseFirestore.getInstance()
-
-        val docRef = db.collection("Favorites").document("Saved")
-        docRef.get()
-            .addOnSuccessListener { result ->
-                if(result != null){
-                    Log.d("Firebase-Succes", "${result.id} => ${result.data}")
-                }else{
-                    Log.d("Firebase-NotSucces", "No result")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w("Firebase-Error", "Error getting documents.", exception)
-            }
 
         val args = this.arguments
         val brandData = args?.get("argBrand")
@@ -103,8 +94,17 @@ class CarDetailFragment : Fragment(){
         queue.add(detailRequest)
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
 
+
+        val btnStore: CheckBox? = binding.saveBtn
+
+        btnStore?.setOnClickListener {
+                view: View? -> store()
+        }
+
         return root
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
