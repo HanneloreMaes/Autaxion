@@ -23,7 +23,7 @@ import java.lang.Exception
 class CarDetailFragment : Fragment(){
 
     private val db = FirebaseFirestore.getInstance().collection("Favorites")
-    
+
     private var position: Int = 0
     var carsDetailList: MutableList<DetailCar> = mutableListOf()
     private var _binding: FragmentCarDetailBinding? = null
@@ -103,7 +103,17 @@ class CarDetailFragment : Fragment(){
         return root
     }
 
+    private fun store(){
+        val brand = detail_brandCar.text
+        val model = detail_modelCar.text
+        val horsepower = detail_horsepower.text
+        val enginge = detail_engine.text
+        val year = detail_year.text
+        val accelerate = accelerate.text
+        val speed = topSpeed.text
 
+        
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
