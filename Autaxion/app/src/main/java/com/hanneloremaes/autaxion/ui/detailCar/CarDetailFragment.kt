@@ -99,7 +99,7 @@ class CarDetailFragment : Fragment(){
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
 
 
-        val btnStore: CheckBox? = binding.saveBtn
+        val btnStore: CheckBox? = binding.saveBtnDetail
 
         btnStore?.setOnClickListener {
                 view: View? -> store()
