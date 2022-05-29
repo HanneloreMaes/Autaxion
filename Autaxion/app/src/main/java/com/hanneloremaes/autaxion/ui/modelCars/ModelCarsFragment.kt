@@ -59,6 +59,7 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
         val args = this.arguments
         val brandData = args?.get("argBrand")
         val brandData2 = args?.get("argBrand2")
+
         Log.d("Arguments-Model", "Brand: $brandData")
         Log.d("Arguments-Model2", "Brand: $brandData2")
 
