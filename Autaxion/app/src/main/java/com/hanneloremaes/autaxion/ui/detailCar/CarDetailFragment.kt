@@ -11,6 +11,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import com.google.firebase.firestore.FirebaseFirestore
 import com.hanneloremaes.autaxion.databinding.FragmentCarDetailBinding
 import com.hanneloremaes.autaxion.model.DetailCar
 import kotlinx.android.synthetic.main.fragment_car_detail.*
@@ -31,6 +32,22 @@ class CarDetailFragment : Fragment(){
 
         _binding = FragmentCarDetailBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        //FireStore
+        val db = FirebaseFirestore.getInstance()
+
+        val docRef = db.collection("Favorites").document("Saved")
+        docRef.get()
+            .addOnSuccessListener { result ->
+                if(result != null){
+                    Log.d("Firebase-Succes", "${result.id} => ${result.data}")
+                }else{
+                    Log.d("Firebase-NotSucces", "No result")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w("Firebase-Error", "Error getting documents.", exception)
+            }
 
         val args = this.arguments
         val brandData = args?.get("argBrand")
