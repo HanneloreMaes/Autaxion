@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -105,6 +106,9 @@ class CarDetailFragment : Fragment(){
 
         queue.add(detailRequest)
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
+
+        val text: TextView = binding.nameFragmentDetail
+        text.text = getString(R.string.year)
 
         val btnSave: Button? = binding.backBtnDetail
         btnSave?.setOnClickListener { void: View? ->
