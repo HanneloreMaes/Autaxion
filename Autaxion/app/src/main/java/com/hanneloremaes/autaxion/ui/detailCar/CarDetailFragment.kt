@@ -131,7 +131,7 @@ class CarDetailFragment : Fragment(){
                 items.put("Accelerate", accelerate)
                 items.put("Speed", speed)
                 db.document("CarSaved${id}").set(items).addOnSuccessListener {
-                        void: Void? -> Toast.makeText(this.context, "Saved To Db", Toast.LENGTH_LONG).show()
+                        void: Void? -> Toast.makeText(this.context, "Liked", Toast.LENGTH_LONG).show()
                 }.addOnFailureListener {
                         exception: java.lang.Exception -> Toast.makeText(this.context, exception.toString(), Toast.LENGTH_LONG).show()
                 }
