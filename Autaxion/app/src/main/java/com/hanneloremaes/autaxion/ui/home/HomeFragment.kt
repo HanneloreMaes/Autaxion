@@ -26,10 +26,13 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        /*https://www.youtube.com/watch?v=fp-b9o4HgTg&list=PLhHQ6SXLVn4vNSg0QtLPxj0Q2uj0hvKQ1&index=5 By MS Pengejar begin*/
         binding.btnHomeDetail.setOnClickListener {
             val intent = Intent(this@HomeFragment.requireContext(), HomeDetailCar::class.java)
             startActivity(intent)
         }
+        /*https://www.youtube.com/watch?v=fp-b9o4HgTg&list=PLhHQ6SXLVn4vNSg0QtLPxj0Q2uj0hvKQ1&index=5 By MS Pengejar eind*/
+        
         return root
     }
 

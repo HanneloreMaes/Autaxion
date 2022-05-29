@@ -13,6 +13,7 @@ class HomeDetailCar : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_detail_car)
 
+        /*https://www.youtube.com/watch?v=fp-b9o4HgTg&list=PLhHQ6SXLVn4vNSg0QtLPxj0Q2uj0hvKQ1&index=5 By MS Pengejar begin*/
         val btnBack: ImageButton = findViewById(R.id.backBtn)
         btnBack.setOnClickListener {
             val homeFragment= HomeFragment()
@@ -23,5 +24,6 @@ class HomeDetailCar : AppCompatActivity() {
             }
             btnBack.visibility = View.GONE
         }
+        /*https://www.youtube.com/watch?v=fp-b9o4HgTg&list=PLhHQ6SXLVn4vNSg0QtLPxj0Q2uj0hvKQ1&index=5 By MS Pengejar eind*/
     }
 }
