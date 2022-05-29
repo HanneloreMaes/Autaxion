@@ -103,6 +103,7 @@ class CarDetailFragment : Fragment(){
         return root
     }
 
+    /*https://www.youtube.com/watch?v=yKSuB5COWL4 By Winision begin*/
     private fun store(){
         val brand = detail_brandCar.text
         val model = detail_modelCar.text
@@ -134,6 +135,7 @@ class CarDetailFragment : Fragment(){
             Toast.makeText(this.context, "Something went wrong", Toast.LENGTH_LONG).show()
         }
     }
+    /*https://www.youtube.com/watch?v=yKSuB5COWL4 By Winision eind*/
 
     override fun onDestroyView() {
         super.onDestroyView()
