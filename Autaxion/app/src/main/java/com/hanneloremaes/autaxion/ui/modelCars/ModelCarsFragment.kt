@@ -6,6 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +23,7 @@ import com.hanneloremaes.autaxion.R
 import com.hanneloremaes.autaxion.databinding.FragmentModelCarsBinding
 import com.hanneloremaes.autaxion.model.ModelCar.ModelCar
 import com.hanneloremaes.autaxion.model.ModelCar.ModelCarAdapter
+import com.hanneloremaes.autaxion.ui.dashboard.DashboardFragment
 import com.hanneloremaes.autaxion.ui.modelYearCars.ModelYearCarsFragment
 
 class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
@@ -37,6 +42,19 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
 
         _binding = FragmentModelCarsBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        val toolbar: Toolbar = binding.recToolbar
+
+        val text: TextView = binding.nameFragmentCar
+        text.text = getString(R.string.title_dashboard)
+
+        val btn: Button = binding.backBtnFragmentCar
+        btn.setOnClickListener { void: View? ->
+            val fragment: Fragment = DashboardFragment()
+            val fr: FragmentManager = childFragmentManager
+            fr.beginTransaction().replace(R.id.recModel, fragment).commit()
+            btn.visibility = View.GONE
+        }
 
         val args = this.arguments
         val brandData = args?.get("argName")
@@ -74,6 +92,10 @@ class ModelCarsFragment : Fragment(), ModelCarAdapter.OnItemClickListener {
 
         queue.add(modelRequest)
         /*https://www.youtube.com/watch?v=e3MDW87mbR8 By SmallAcademy Pt. 1-3 eind*/
+
+        toolbar.setOnClickListener {
+            Toast.makeText(requireActivity(), "Awesome!", Toast.LENGTH_SHORT).show()
+        }
 
         return root
     }
