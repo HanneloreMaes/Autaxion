@@ -7,19 +7,65 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.school.autaxion.ui.home.HomeFragment"
+        android:name="com.hanneloremaes.autaxion.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_homeDetailCar"
+            app:destination="@id/homeDetailCar" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.school.autaxion.ui.dashboard.DashboardFragment"
+        android:name="com.hanneloremaes.autaxion.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_modelCarsFragment"
+            app:destination="@id/modelCarsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.school.autaxion.ui.notifications.NotificationsFragment"
+        android:name="com.hanneloremaes.autaxion.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/modelCarsFragment"
+        android:name="com.hanneloremaes.autaxion.ui.modelCars.ModelCarsFragment"
+        android:label="fragment_model_cars"
+        tools:layout="@layout/fragment_model_cars" >
+        <action
+            android:id="@+id/action_modelCarsFragment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+        <action
+            android:id="@+id/action_modelCarsFragment_to_modelYearCarsFragment"
+            app:destination="@id/modelYearCarsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/modelYearCarsFragment"
+        android:name="com.hanneloremaes.autaxion.ui.modelYearCars.ModelYearCarsFragment"
+        android:label="fragment_model_year_cars"
+        tools:layout="@layout/fragment_model_year_cars" >
+        <action
+            android:id="@+id/action_modelYearCarsFragment_to_modelCarsFragment"
+            app:destination="@id/modelCarsFragment" />
+        <action
+            android:id="@+id/action_modelYearCarsFragment_to_carDetailFragment"
+            app:destination="@id/carDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carDetailFragment"
+        android:name="com.hanneloremaes.autaxion.ui.detailCar.CarDetailFragment"
+        android:label="fragment_car_detail"
+        tools:layout="@layout/fragment_car_detail" >
+        <action
+            android:id="@+id/action_carDetailFragment_to_modelYearCarsFragment"
+            app:destination="@id/modelYearCarsFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/homeDetailCar"
+        android:name="com.hanneloremaes.autaxion.HomeDetailCar"
+        android:label="activity_home_detail_car"
+        tools:layout="@layout/activity_home_detail_car" />
 </navigation>

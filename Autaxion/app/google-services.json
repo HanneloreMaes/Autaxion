@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "142267423972",
+    "project_id": "autaxion",
+    "storage_bucket": "autaxion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142267423972:android:e0601902a4f2fbd600a0f1",
+        "android_client_info": {
+          "package_name": "com.hanneloremaes.autaxion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142267423972-9etl7lg0flo9bs46vmtem86kmp5eucf2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa1fQR1UYp5LL4TIH47QynLkKmcr5b7p8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "142267423972-9etl7lg0flo9bs46vmtem86kmp5eucf2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

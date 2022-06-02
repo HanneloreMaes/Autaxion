@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".HomeDetailCar">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/black">
+
+        <Button
+            android:id="@+id/backBtnActivity"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/ic_back_arrow"/>
+
+        <TextView
+            android:id="@+id/nameFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_home"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="535dp"/>
+
+        <CheckBox
+            android:id="@+id/saveBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/checkbox_selector"
+            android:button="@null"
+            android:gravity="center"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detail_modelCar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/red"
+                android:text="@string/mustang_mach_e"
+                android:textSize="30sp"
+                android:textAlignment="center"/>
+            <TextView
+                android:id="@+id/detail_brandCar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/ford"
+                android:textSize="25sp"
+                android:textAlignment="center"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="60dp">
+
+                <ImageView
+                    android:layout_width="291dp"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="@string/image_default"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/image_12" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/detail_horsepower"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/electrisch"
+                                android:textAlignment="center"
+                                android:textColor="@color/red"
+                                android:textSize="35sp" />
+
+                            <TextView
+                                android:id="@+id/detail_horsepowerText"
+                                android:layout_width="173dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/engine"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/detail_engine"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lithium_ion"
+                                android:textAlignment="center"
+                                android:textColor="@color/red"
+                                android:textSize="35sp" />
+
+
+                            <TextView
+                                android:id="@+id/detail_engineText"
+                                android:layout_width="194dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/batterij"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="40dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="15dp">
+                            <TextView
+                                android:id="@+id/detail_year"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/red"
+                                android:text="@string/jaar"
+                                android:textSize="35sp"
+                                android:textAlignment="center"/>
+                            <TextView
+                                android:id="@+id/detail_yearText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/year"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:textAlignment="center"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="15dp"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/accelerate"
+                                android:layout_width="127dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="0dp"
+                                android:text="@string/_68_kwh"
+                                android:textAlignment="center"
+                                android:textColor="@color/red"
+                                android:textSize="35sp" />
+
+                            <TextView
+                                android:id="@+id/accelerateText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/speed100km"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginStart="12dp">
+                            <TextView
+                                android:id="@+id/topSpeed"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/red"
+                                android:text="@string/rwd"
+                                android:textSize="35sp"
+                                android:textAlignment="center"/>
+
+                            <TextView
+                                android:id="@+id/topSpeedText"
+                                android:layout_width="110dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/top_speed"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
